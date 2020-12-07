@@ -1,0 +1,35 @@
+version: 0.1
+backend:
+  phases:
+    preBuild:
+      commands:
+        
+        # install python 3.8 from amazon-linux-extras
+        - amazon-linux-extras install python3.8
+
+        # install virtualenv and pipenv
+        - python3.8 -m pip install virtualenv
+        - pip3.8 install --force pipenv 
+
+    build:
+      commands:
+
+        # push the stack to amplify
+        - amplifyPush --simple
+
+frontend:
+  phases:
+    build:
+      commands:
+        # install and build with yarn
+        - yarn install
+        - yarn run build
+
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+      
+  cache:
+    paths:
+      - node_modules/**/*
