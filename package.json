@@ -11,12 +11,10 @@
       "autoprefixer": {}
     }
   },
-  "name": "surveyjs-vue",
+  "name": "vuesurvey",
   "keywords": [
     "vue",
-    "vuejs",
-    "starter",
-    "surveyjs"
+    "vuejs"
   ],
   "eslintConfig": {
     "rules": {},
@@ -40,10 +38,10 @@
     "eslint-plugin-vue": "^7.2.0",
     "vue-template-compiler": "^2.6.12"
   },
-  "description": "SurveJS Vue.js example starter project",
+  "description": "Vue Survey",
   "dependencies": {
+    "@ditdot-dev/vue-flow-form": "^1.1.4",
     "@vue/cli-plugin-babel": "4.5.9",
-    "survey-vue": "^1.8.18",
     "vue": "^2.6.12"
   },
   "browserslist": [

@@ -1,18 +1,43 @@
 <template>
-  <div>
-    <div id = "surveyElement">
-        <SurveyComponent />
-    </div>
-  </div>
+  <flow-form v-bind:questions="questions" v-bind:language="language" />
 </template>
 
 <script>
-  import SurveyComponent from "./components/SurveyComponent";
+  // Import necessary components and classes
+  import FlowForm, { QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-form'
 
   export default {
-    name: "App",
+    name: 'example',
     components: {
-      SurveyComponent
+      FlowForm
+    },
+    data() {
+      return {
+        
+        questions: [
+          new QuestionModel({
+            title: 'Question one',
+            type: QuestionType.MultipleChoice,
+            options: [
+              new ChoiceOption({
+                label: 'Answer one'
+              }),
+              new ChoiceOption({
+                label: 'Answer two'
+              }),
+            ]
+          })
+        ]
+      }
     }
-  };
+  }
 </script>
+
+<style>
+  /* Import Vue Flow Form base CSS */
+  @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.css';
+  /* Import one of the Vue Flow Form CSS themes (optional) */
+  @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.theme-minimal.css';
+  /* @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.theme-green.css'; */
+  /* @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.theme-purple.css'; */
+</style>
