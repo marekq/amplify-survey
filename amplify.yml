@@ -7,6 +7,7 @@ backend:
         # install python 3.8 from amazon-linux-extras
         - amazon-linux-extras install python3.8 -y
         - alias python='/bin/python3.8'
+        - alias python3='/bin/python3.8'
 
     build:
       commands:
