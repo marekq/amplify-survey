@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/survey/{surveyid}",
+            "lambdaFunction": "getsurvey",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/survey/*"
+        }
+    ],
+    "resourceName": "surveys",
+    "apiName": "surveys",
+    "functionArns": [
+        {
+            "lambdaFunction": "getsurvey"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplifysurvey-prod-223838-authRole",
+        "unAuthRoleName": "amplify-amplifysurvey-prod-223838-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "getsurvey",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "storage": {
+      "surveys": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
