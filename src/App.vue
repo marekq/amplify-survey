@@ -57,6 +57,10 @@
         language: new LanguageModel({}),
         questions: [
           new QuestionModel({
+            title: 'Welcome to the survey',
+            type: QuestionType.SectionBreak
+          }),
+          new QuestionModel({
             title: 'Multiple choice',
             type: QuestionType.MultipleChoice,
             options: [
