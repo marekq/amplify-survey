@@ -4,7 +4,7 @@
 
 <script>
   // Import necessary components and classes
-  import FlowForm, { QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-form'
+  import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form'
 
   export default {
     name: 'example',
@@ -13,10 +13,10 @@
     },
     data() {
       return {
-        
+        language: new LanguageModel({}),
         questions: [
           new QuestionModel({
-            title: 'Question one',
+            title: 'Multiple choice',
             type: QuestionType.MultipleChoice,
             options: [
               new ChoiceOption({
@@ -26,6 +26,44 @@
                 label: 'Answer two'
               }),
             ]
+          }),
+          new QuestionModel({
+            title: 'Dropdown',
+            type: QuestionType.Dropdown,
+            options: [
+              new ChoiceOption({
+                label: 'Answer one'
+              }),
+              new ChoiceOption({
+                label: 'Answer two'
+              }),
+            ]
+          }),
+          new QuestionModel({
+            id: 'multiple_choices',
+            title: 'Multiple choice',
+            type: QuestionType.MultipleChoice,
+            multiple: true,
+            helpText: 'Pick all that apply',
+            required: true,
+            options: [
+              new ChoiceOption({
+                label: 'Answer 1'
+              }),
+              new ChoiceOption({
+                label: 'Answer 2'
+              }),
+              new ChoiceOption({
+                label: 'Answer 3'
+              }),
+              new ChoiceOption({
+                label: 'Answer 4'
+              })
+            ]
+          }),
+          new QuestionModel({
+            title: 'Any other comments?',
+            type: QuestionType.LongText
           })
         ]
       }
