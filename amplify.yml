@@ -9,7 +9,7 @@ backend:
         - ln -sf /bin/python3.8 /bin/python3
         - python3.8 -m pip install virtualenv
         - pip3.8 install --force pipenv 
-        
+
     build:
       commands:
 
@@ -25,7 +25,7 @@ frontend:
         - yarn run build
 
   artifacts:
-    baseDirectory: public
+    baseDirectory: dist
     files:
       - '**/*'
       
