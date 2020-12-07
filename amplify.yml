@@ -1,15 +1,15 @@
 version: 0.1
 backend:
   phases:
-    build:
+    preBuild:
       commands:
         
         # install python 3.8 from amazon-linux-extras
-        - amazon-linux-extras install python3.8
+        - amazon-linux-extras install python3.8 -y
+        - alias python='/bin/python3.8'
 
-        # install virtualenv and pipenv
-        - python3.8 -m pip install virtualenv
-        - pip3.8 install --force pipenv 
+    build:
+      commands:
 
         # push the stack to amplify
         - amplifyPush --simple
