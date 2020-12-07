@@ -1,12 +1,11 @@
 {
     "paths": [
         {
-            "name": "/survey/{surveyid}",
+            "name": "/survey",
             "lambdaFunction": "getsurvey",
             "privacy": {
                 "open": true
-            },
-            "policyResourceName": "/survey/*"
+            }
         }
     ],
     "resourceName": "surveys",
@@ -31,5 +30,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "bc2fad3d"
 }

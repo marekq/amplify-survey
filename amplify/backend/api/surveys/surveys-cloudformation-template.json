@@ -90,7 +90,7 @@
             ],
             "paths": {
               
-              "/survey/{surveyid}": {
+              "/survey": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -189,7 +189,7 @@
                   }
                 }
               },
-              "/survey/{surveyid}/{proxy+}": {
+              "/survey/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -367,7 +367,7 @@
         
         
         
-      "DeploymentAPIGWsurveys": {
+      "DeploymentAPIGWsurveysbc2fad3d": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
