@@ -149,6 +149,7 @@
 
         // post the survey results to the api gw endpoint
         fetch(posturl, {
+          mode: 'no-cors',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

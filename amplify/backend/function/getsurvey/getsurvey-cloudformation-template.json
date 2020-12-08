@@ -83,7 +83,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-amplifysurvey-prod-223838-deployment",
-          "S3Key": "amplify-builds/getsurvey-666b7a3137704e556562-build.zip"
+          "S3Key": "amplify-builds/getsurvey-2b2b56724b7674306367-build.zip"
         }
       }
     },
