@@ -45,6 +45,11 @@
 <script>
   import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form';
   import fetch from "node-fetch";
+  import awsconfig from './aws-exports';
+
+  // get api gw endpoint
+  const apigwurl = awsconfig.aws_cloud_logic_custom.[0].endpoint;
+  console.log(apigwurl);
 
   export default {
     name: 'vuesurvey',
@@ -137,13 +142,13 @@
         /* eslint-disable-next-line no-unused-vars */
         const data = this.getData();
 
-        // TODO - implement API endpoint
-        const url = "https://marek.rocks/"
-
-        console.log('sending post');
+        // set the api gw endpoint url 
+        const posturl = apigwurl + '/survey/'
+        console.log('sending post to ' + posturl);
         console.log(data);
 
-        fetch(url, {
+        // post the survey results to the api gw endpoint
+        fetch(posturl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
