@@ -1,4 +1,6 @@
-import json
+import boto3, json, os
+
+ddbtable = os.environ['STORAGE_SURVEYS_ARN']
 
 def handler(event, context):
 
@@ -6,5 +8,5 @@ def handler(event, context):
 
 	return {
 		'statusCode': 200,
-		'body': json.dumps('Hello from Lambda!')
+		'body': json.dumps(event['body'])
 	}

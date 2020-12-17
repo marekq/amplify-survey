@@ -49,7 +49,7 @@
 
   // get api gw endpoint
   const apigwurl = awsconfig.aws_cloud_logic_custom.[0].endpoint;
-  console.log(apigwurl);
+  console.log('sending survey results to ' + apigwurl);
 
   export default {
     name: 'vuesurvey',
@@ -63,11 +63,14 @@
         questions: [
           new QuestionModel({
             title: 'Welcome to the survey',
-            type: QuestionType.SectionBreak
+            type: QuestionType.SectionBreak,
+            tagline: "Start"
           }),
           new QuestionModel({
             title: 'Multiple choice',
             type: QuestionType.MultipleChoice,
+            tagline: "Question One",
+            required: false,
             options: [
               new ChoiceOption({
                 label: 'Answer one'
@@ -80,6 +83,8 @@
           new QuestionModel({
             title: 'Dropdown',
             type: QuestionType.Dropdown,
+            tagline: "Question Two",
+            required: false,
             options: [
               new ChoiceOption({
                 label: 'Answer three'
@@ -92,10 +97,11 @@
           new QuestionModel({
             id: 'multiple_choices',
             title: 'Multiple choice',
+            tagline: "Question Three",
             type: QuestionType.MultipleChoice,
             multiple: true,
+            required: false,
             helpText: 'Pick all that apply',
-            required: true,
             options: [
               new ChoiceOption({
                 label: 'Answer 1'
@@ -108,6 +114,7 @@
           new QuestionModel({
             title: 'Any other comments?',
             type: QuestionType.LongText,
+            tagline: "Final Question",
             required: false
           })
         ]
