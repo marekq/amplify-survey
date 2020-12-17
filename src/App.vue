@@ -44,12 +44,10 @@
 
 <script>
   import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form';
-  import fetch from "node-fetch";
+  import Amplify, { API, graphqlOperation } from 'aws-amplify';
+  import { createSurvey } from './graphql/mutations';
   import awsconfig from './aws-exports';
-
-  // get api gw endpoint
-  const apigwurl = awsconfig.aws_cloud_logic_custom.[0].endpoint;
-  console.log('sending survey results to ' + apigwurl);
+  Amplify.configure(awsconfig);
 
   export default {
     name: 'vuesurvey',
@@ -133,6 +131,11 @@
         this.onSendData();
       },
 
+      async createNewSurvey() {
+        const survey = {'id': '1', 'timest': '123', 'q1': 'abc'}
+        await API.graphql(graphqlOperation(createSurvey, { input: survey }));
+      },
+
       // send data onSubmit
       /* eslint-disable-next-line no-unused-vars */
       onSubmit(questionList) {
@@ -143,26 +146,16 @@
       onSendData() {
 
         // set submitted form status to true
-        this.$refs.flowform.submitted = true;
-        this.submitted = true;
+        //this.$refs.flowform.submitted = true;
+        //this.submitted = true;
 
         /* eslint-disable-next-line no-unused-vars */
         const data = this.getData();
 
         // set the api gw endpoint url 
-        const posturl = apigwurl + '/survey/'
-        console.log('sending post to ' + posturl);
-        console.log(data);
+        console.log('sending data ' + JSON.stringify(data));
+        this.createNewSurvey()
 
-        // post the survey results to the api gw endpoint
-        fetch(posturl, {
-          mode: 'no-cors',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
       },
 
       // get the question data
