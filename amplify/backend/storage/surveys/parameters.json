@@ -1,7 +1,0 @@
-{
-    "tableName": "surveys",
-    "partitionKeyName": "surveyid",
-    "partitionKeyType": "S",
-    "sortKeyName": "timest",
-    "sortKeyType": "N"
-}

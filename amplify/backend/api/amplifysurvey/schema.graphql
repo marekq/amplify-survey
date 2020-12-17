@@ -1,0 +1,9 @@
+type Survey @model {
+  id: ID!
+  timest: String!
+  q1: String
+  q2: String
+  q3: String
+  q4: String
+  q5: String
+}

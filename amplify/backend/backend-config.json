@@ -1,41 +1,22 @@
 {
-  "function": {
-    "getsurvey": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "storage",
-          "resourceName": "surveys",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    }
-  },
+  "function": {},
   "api": {
-    "surveys": {
-      "service": "API Gateway",
+    "amplifysurvey": {
+      "service": "AppSync",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "getsurvey",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7,
+              "description": "postsurvey"
+            }
+          },
+          "additionalAuthenticationProviders": []
         }
-      ]
+      }
     }
   },
-  "storage": {
-    "surveys": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    }
-  }
+  "storage": {}
 }
