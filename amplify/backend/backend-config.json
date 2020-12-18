@@ -18,5 +18,13 @@
       }
     }
   },
-  "storage": {}
+  "storage": {},
+  "auth": {
+    "amplifysurveyf967f472": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
 }
