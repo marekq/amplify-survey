@@ -174,7 +174,8 @@
         var i;
         for (i = 0; i < data['questions'].length; i++) {
 
-          survey['q' + i] = String(data['questions'][i]) + ", " + String(data['answers'][i])
+          survey['q' + i] = String(data['questions'][i]) 
+          survey['a' + i] = String(data['answers'][i])
         }
 
         // send survey to graphql

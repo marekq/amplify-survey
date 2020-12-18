@@ -2,9 +2,15 @@ type Survey @model {
   id: ID!
   timest: String!
   q0: String
+  a0: String
   q1: String
+  a1: String
   q2: String
+  a2: String
   q3: String
+  a3: String
   q4: String
+  a4: String
   q5: String
+  a5: String
 }
