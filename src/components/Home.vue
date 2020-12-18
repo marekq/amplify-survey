@@ -1,6 +1,8 @@
 
 <template>
-  <h1>Home</h1>
+    <center>
+        <h1>Home</h1>
+    </center>
 </template>
 
 <script>

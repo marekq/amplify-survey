@@ -9,6 +9,7 @@ export const createSurvey = /* GraphQL */ `
     createSurvey(input: $input, condition: $condition) {
       id
       timest
+      q0
       q1
       q2
       q3
@@ -27,6 +28,7 @@ export const updateSurvey = /* GraphQL */ `
     updateSurvey(input: $input, condition: $condition) {
       id
       timest
+      q0
       q1
       q2
       q3
@@ -45,6 +47,7 @@ export const deleteSurvey = /* GraphQL */ `
     deleteSurvey(input: $input, condition: $condition) {
       id
       timest
+      q0
       q1
       q2
       q3

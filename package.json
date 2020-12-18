@@ -44,7 +44,8 @@
     "core-js": "^3.8.1",
     "regenerator-runtime": "^0.13.7",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.4.9",
+    "vuetable-2": "^1.7.5"
   },
   "browserslist": [
     "> 1%",

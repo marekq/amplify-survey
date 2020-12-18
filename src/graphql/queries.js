@@ -6,6 +6,7 @@ export const getSurvey = /* GraphQL */ `
     getSurvey(id: $id) {
       id
       timest
+      q0
       q1
       q2
       q3
@@ -26,6 +27,7 @@ export const listSurveys = /* GraphQL */ `
       items {
         id
         timest
+        q0
         q1
         q2
         q3

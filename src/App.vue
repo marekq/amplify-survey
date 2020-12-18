@@ -7,14 +7,15 @@
         <router-link tag = "p" to = "/survey">
           <a>Survey</a>
         </router-link>
-        <router-link tag = "p" to = "/admin" v-if="signedIn">
+        <router-link tag = "p" to = "/admin" v-if = "signedIn">
           <a>Admin</a>
         </router-link>
-        <router-link tag = "p" to = "/auth" v-if="!signedIn">
+        <router-link tag = "p" to = "/auth" v-if = "!signedIn">
           <a>Login</a>
         </router-link>
       </div>
       <router-view></router-view>
+      <br /><br />
       <div class='sign-out'>
         <amplify-sign-out v-if="signedIn"></amplify-sign-out>
       </div>
@@ -37,7 +38,7 @@ export default {
       const { payload } = data
       if (payload.event === 'signIn') {
         this.signedIn = true
-        this.$router.push('/profile')
+        this.$router.push('/admin')
       }
       if (payload.event === 'signOut') {
         this.$router.push('/auth')
