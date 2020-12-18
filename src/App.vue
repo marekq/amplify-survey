@@ -144,19 +144,15 @@
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
 
-        console.log(data);
-
         // create survey json
         const survey = {'timest': now };
 
+      // add survey questions and answers to dict
         var i;
         for (i = 0; i < data['questions'].length; i++) {
 
-          survey['q' + i] = data['questions'][i]
-          survey['a' + i] = data['answers'][i]
+          survey['q' + i] = String(data['questions'][i]) + ", " + String(data['answers'][i])
         }
-
-        console.log(survey);
 
         // send survey to graphql
         await API.graphql(graphqlOperation(createSurvey, { input: survey }));

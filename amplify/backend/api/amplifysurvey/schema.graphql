@@ -7,10 +7,4 @@ type Survey @model {
   q3: String
   q4: String
   q5: String
-  a0: String
-  a1: String
-  a2: String
-  a3: String
-  a4: String
-  a5: String
 }
