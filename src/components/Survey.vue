@@ -170,7 +170,7 @@
         // create survey json
         const survey = {'timest': now };
 
-      // add survey questions and answers to dict
+        // add survey questions and answers to dict
         var i;
         for (i = 0; i < data['questions'].length; i++) {
 
@@ -186,13 +186,14 @@
       /* eslint-disable-next-line no-unused-vars */
       onSubmit(questionList) {
         this.onSendData();
+
+        // set submitted form status to true
+        this.$refs.flowform.submitted = true;
+        this.submitted = true;
       },
 
       // run onSendData
       onSendData() {
-
-        // set submitted form status to true
-        this.$refs.flowform.submitted = true;
 
         /* eslint-disable-next-line no-unused-vars */
         const data = this.getData();
@@ -200,6 +201,9 @@
         // send data 
         this.createNewSurvey(data)
 
+      // set submitted form status to true
+        this.$refs.flowform.submitted = true;
+        this.submitted = true;
       },
 
       // get the question data
@@ -225,6 +229,7 @@
       onKeyListener($event) {
         if ($event.key === "Enter" && this.completed && !this.submitted) {
           this.onSendData();
+          this.submitted = true;
         }
       }
     }
