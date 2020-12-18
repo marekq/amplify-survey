@@ -44,8 +44,12 @@
 
 <script>
   import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form';
-  import Amplify, { API, graphqlOperation } from 'aws-amplify';
+  
+  // import graphql mutations
   import { createSurvey } from './graphql/mutations';
+
+  // import awsconfig
+  import Amplify, { API, graphqlOperation } from 'aws-amplify';
   import awsconfig from './aws-exports';
   Amplify.configure(awsconfig);
 
@@ -57,6 +61,7 @@
 
     data() {
       return {
+        submitted: false,
         language: new LanguageModel({}),
         questions: [
           new QuestionModel({
@@ -118,12 +123,15 @@
         ]
       }
     },
+
     mounted() {
       document.addEventListener('keyup', this.onKeyListener)
     },
+
     beforeDestroy() {
       document.removeEventListener('keyup', this.onKeyListener)
     },
+
     methods: {
       // send data onComplete
       /* eslint-disable-next-line no-unused-vars */
@@ -131,8 +139,26 @@
         this.onSendData();
       },
 
-      async createNewSurvey() {
-        const survey = {'id': '1', 'timest': '123', 'q1': 'abc'}
+      async createNewSurvey(data) {
+
+        // get unix timestamp
+        const now = Math.round(new Date() / 1000);
+
+        console.log(data);
+
+        // create survey json
+        const survey = {'timest': now };
+
+        var i;
+        for (i = 0; i < data['questions'].length; i++) {
+
+          survey['q' + i] = data['questions'][i]
+          survey['a' + i] = data['answers'][i]
+        }
+
+        console.log(survey);
+
+        // send survey to graphql
         await API.graphql(graphqlOperation(createSurvey, { input: survey }));
       },
 
@@ -146,15 +172,13 @@
       onSendData() {
 
         // set submitted form status to true
-        //this.$refs.flowform.submitted = true;
-        //this.submitted = true;
+        this.$refs.flowform.submitted = true;
 
         /* eslint-disable-next-line no-unused-vars */
         const data = this.getData();
 
-        // set the api gw endpoint url 
-        console.log('sending data ' + JSON.stringify(data));
-        this.createNewSurvey()
+        // send data 
+        this.createNewSurvey(data)
 
       },
 
