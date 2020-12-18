@@ -2,6 +2,7 @@
   <div id = "app">
     <center>
       <h1>Admin page</h1>
+        <br /><br />
         <vuetable ref = "vuetable"
           :fields = "fields"
           :api-mode = "false"
