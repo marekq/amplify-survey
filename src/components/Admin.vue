@@ -26,12 +26,10 @@
   // set vuetable fields
   const fields = [
     'timest',
-    'a0',
     'a1',
     'a2',
     'a3',
-    'a4',
-    'q1'
+    'a4'
   ]
 
   // default export

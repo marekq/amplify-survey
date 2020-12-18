@@ -66,60 +66,55 @@
         language: new LanguageModel({}),
         questions: [
           new QuestionModel({
-            title: 'Welcome to the survey',
-            type: QuestionType.SectionBreak,
-            tagline: "Start"
+            title: 'Welcome',
+            type: QuestionType.SectionBreak
           }),
           new QuestionModel({
-            title: 'Multiple choice',
+            title: 'Rating',
             type: QuestionType.MultipleChoice,
-            tagline: "Question One",
-            required: false,
+            required: true,
             options: [
               new ChoiceOption({
-                label: 'Answer one'
+                label: 'One'
               }),
               new ChoiceOption({
-                label: 'Answer two'
+                label: 'Five'
               }),
             ]
           }),
           new QuestionModel({
-            title: 'Dropdown',
+            title: 'Experience',
             type: QuestionType.Dropdown,
-            tagline: "Question Two",
-            required: false,
+            required: true,
             options: [
               new ChoiceOption({
-                label: 'Answer three'
+                label: 'High'
               }),
               new ChoiceOption({
-                label: 'Answer four'
+                label: 'Low'
               }),
             ]
           }),
           new QuestionModel({
-            id: 'multiple_choices',
-            title: 'Multiple choice',
-            tagline: "Question Three",
+            title: 'Budget',
             type: QuestionType.MultipleChoice,
             multiple: true,
-            required: false,
+            required: true,
             helpText: 'Pick all that apply',
             options: [
               new ChoiceOption({
-                label: 'Answer 1'
+                label: '$0 - $100'
               }),
               new ChoiceOption({
-                label: 'Answer 2'
+                label: '$100 - $500'
               })
             ]
           }),
           new QuestionModel({
-            title: 'Any other comments?',
+            title: 'Comments',
             type: QuestionType.LongText,
             tagline: "Final Question",
-            required: false
+            required: true
           })
         ]
       }
