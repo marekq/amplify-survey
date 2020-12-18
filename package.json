@@ -31,20 +31,15 @@
     }
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "4.5.9",
     "@vue/cli-service": "4.5.9",
-    "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
-    "eslint-plugin-vue": "^7.2.0",
+    "eslint-plugin-vue": "^7.3.0",
     "vue-template-compiler": "^2.6.12"
   },
   "description": "Vue Survey",
   "dependencies": {
     "@ditdot-dev/vue-flow-form": "^1.1.4",
-    "@vue/cli-plugin-babel": "4.5.9",
-    "core-js": "^3.8.1",
-    "fetch": "^1.1.0",
-    "node-fetch": "^2.6.1",
+    "aws-amplify": "^3.3.13",
     "vue": "^2.6.12"
   },
   "browserslist": [
