@@ -210,9 +210,6 @@
         this.questions.forEach((question) => {
           if (question.title) {
             let answer = question.answer;
-            if (typeof answer === "object") {
-              answer = answer.join(", ");
-            }
             data.questions.push(question.title);
             data.answers.push(answer);
           }

@@ -39,8 +39,10 @@
   "description": "Vue Survey",
   "dependencies": {
     "@aws-amplify/ui-vue": "^0.2.32",
-    "@ditdot-dev/vue-flow-form": "^1.1.4",
+    "@ditdot-dev/vue-flow-form": "^1.1.6",
     "aws-amplify": "^3.3.13",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.21.1",
     "core-js": "^3.8.1",
     "regenerator-runtime": "^0.13.7",
     "vue": "^2.6.12",

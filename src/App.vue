@@ -16,14 +16,14 @@
       </div>
       <router-view></router-view>
       <br /><br />
-      <div class='sign-out'>
+      <div class = 'sign-out' sticky = "bottom">
         <amplify-sign-out v-if="signedIn"></amplify-sign-out>
       </div>
     </div>
 </template>
 
 <script>
-import { Auth, Hub } from 'aws-amplify'
+import { Auth, Hub } from 'aws-amplify';
 
 export default {
   name: 'app',
