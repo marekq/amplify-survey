@@ -10,11 +10,17 @@ export const createSurvey = /* GraphQL */ `
       id
       timest
       q0
+      a0
       q1
+      a1
       q2
+      a2
       q3
+      a3
       q4
+      a4
       q5
+      a5
       createdAt
       updatedAt
     }
@@ -29,11 +35,17 @@ export const updateSurvey = /* GraphQL */ `
       id
       timest
       q0
+      a0
       q1
+      a1
       q2
+      a2
       q3
+      a3
       q4
+      a4
       q5
+      a5
       createdAt
       updatedAt
     }
@@ -48,11 +60,17 @@ export const deleteSurvey = /* GraphQL */ `
       id
       timest
       q0
+      a0
       q1
+      a1
       q2
+      a2
       q3
+      a3
       q4
+      a4
       q5
+      a5
       createdAt
       updatedAt
     }

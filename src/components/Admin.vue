@@ -1,13 +1,13 @@
 <template>
   <div id = "app">
-    <h1>Admin page</h1>
-    <template>
-      <vuetable ref = "vuetable"
-        :fields = "fields"
-        :api-mode = "false"
-        :data = "data"
-      ></vuetable>
-    </template>
+    <center>
+      <h1>Admin page</h1>
+        <vuetable ref = "vuetable"
+          :fields = "fields"
+          :api-mode = "false"
+          :data = "data"
+        />
+    </center>
   </div>
 </template>
 
@@ -26,10 +26,12 @@
   // set vuetable fields
   const fields = [
     'timest',
-    'q1',
-    'q2',
-    'q3',
-    'q4'
+    'a0',
+    'a1',
+    'a2',
+    'a3',
+    'a4',
+    'q1'
   ]
 
   // default export
