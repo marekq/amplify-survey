@@ -3,7 +3,8 @@
     <center>
       <h1>Admin page</h1>
         <br /><br />
-        <vuetable ref = "vuetable"
+        <vuetable 
+          ref = "vuetable"
           :fields = "fields"
           :api-mode = "false"
           :data = "data"
@@ -15,11 +16,10 @@
 <script>  
   // import vuetable
   import Vuetable from 'vuetable-2';
+  import prettyMilliseconds from 'pretty-ms';
 
   // import graphql queries
   import { listSurveys } from '../graphql/queries';
-
-  import prettyMilliseconds from 'pretty-ms';
 
   // import awsconfig and configure amplify
   import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
@@ -29,7 +29,6 @@
   // set vuetable fields
   const fields = [
     'timest',
-    'a1',
     'a2',
     'a3',
     'a4'
@@ -55,6 +54,21 @@
 
       // get data from graphql
       var data = await API.graphql({ query: listSurveys });
+      var tmp = data.data.listSurveys.items;
+  		var now = new Date().getTime();
+
+      // convert the unix timestamp of every blog to a timediff string
+      tmp.map(function(survey, index){
+                
+        // get the time difference in seconds
+        var timestamp = now - (survey.timest * 1000);
+
+        // get the time difference string and set it in data
+        var timediff = prettyMilliseconds(timestamp, {compact: true});
+        survey.timest = timediff;
+
+      });
+
       this.data = data.data.listSurveys.items;
     }
   }
