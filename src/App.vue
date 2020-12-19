@@ -57,9 +57,10 @@ export default {
 <style>
 .nav {
   display: flex;
+  text-align: center;
 }
 .nav p {
-  padding: 0px 30px 0px 0px;
+  padding: 4em 4em 0 6em;
   font-size: 18px;
   color: #000;
 }

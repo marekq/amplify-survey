@@ -19,6 +19,8 @@
   // import graphql queries
   import { listSurveys } from '../graphql/queries';
 
+  import prettyMilliseconds from 'pretty-ms';
+
   // import awsconfig and configure amplify
   import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
   import awsconfig from '../aws-exports';
@@ -50,9 +52,9 @@
 
     // retrieve data from table
     async mounted () {        
-      const data = await API.graphql({ query: listSurveys });
 
-      console.log(data.data.listSurveys);
+      // get data from graphql
+      var data = await API.graphql({ query: listSurveys });
       this.data = data.data.listSurveys.items;
     }
   }

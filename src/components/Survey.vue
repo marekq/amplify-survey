@@ -1,7 +1,7 @@
 <template>
   <div>
     <flow-form
-      ref="flowform"
+      id = "app"
       v-on:complete="onComplete"
       v-on:submit="onSubmit"
       v-bind:questions="questions"
@@ -21,21 +21,7 @@
 
       <template v-slot:completeButton>
         <div class="f-submit" v-if="!submitted">
-          <button 
-            class="o-btn-action"
-            ref="button"
-            type="submit"
-            href="#"
-            v-on:click.prevent="onSendData()"
-            aria-label="Press to submit"
-          >
-            <span>{{ language.submitText }}</span>
-          </button>
-          <a class="f-enter-desc"
-            href="#"
-            v-on:click.prevent="onSendData()"
-            v-html="language.formatString(language.pressEnter)">
-          </a>
+  
         </div>
       </template>
     </flow-form>
@@ -122,7 +108,6 @@
 
     beforeCreate() {
       Hub.listen('auth', data => {
-        console.log('data:', data)
         const { payload } = data
         
         if (payload.event === 'signIn') {
@@ -181,10 +166,6 @@
       /* eslint-disable-next-line no-unused-vars */
       onSubmit(questionList) {
         this.onSendData();
-
-        // set submitted form status to true
-        this.$refs.flowform.submitted = true;
-        this.submitted = true;
       },
 
       // run onSendData
@@ -196,9 +177,6 @@
         // send data 
         this.createNewSurvey(data)
 
-      // set submitted form status to true
-        this.$refs.flowform.submitted = true;
-        this.submitted = true;
       },
 
       // get the question data
@@ -230,5 +208,11 @@
 
 <style>
   @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.css';
-  @import '~@ditdot-dev/vue-flow-form/dist/vue-flow-form.theme-minimal.css';
+  .flow-container {
+    margin: 0 25px; 
+    padding-top: 20px;
+  }
+  .f-selected {
+    background-color: lightgray;
+  }
 </style>
