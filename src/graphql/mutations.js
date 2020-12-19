@@ -21,6 +21,9 @@ export const createSurvey = /* GraphQL */ `
       a4
       q5
       a5
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -46,6 +49,9 @@ export const updateSurvey = /* GraphQL */ `
       a4
       q5
       a5
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -71,6 +77,9 @@ export const deleteSurvey = /* GraphQL */ `
       a4
       q5
       a5
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
