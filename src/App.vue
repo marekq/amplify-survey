@@ -57,19 +57,16 @@ export default {
 <style>
 .nav {
   display: flex;
-  text-align: center;
 }
 .nav p {
-  padding: 4em 4em 0 6em;
+  padding: 2% 10% 2% 10%;
   font-size: 18px;
   color: #000;
 }
 .nav p:hover {
   opacity: .7;
 }
-.nav p a {
-  text-decoration: none;
-}
+
 .sign-out {
   width: 160px;
   margin: 0 auto;

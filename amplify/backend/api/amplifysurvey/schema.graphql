@@ -1,4 +1,4 @@
-type Survey @model {
+type Survey @model @auth(rules: [{allow: public}]) {
   id: ID!
   timest: String!
   q0: String
@@ -14,3 +14,4 @@ type Survey @model {
   q5: String
   a5: String
 }
+ 
