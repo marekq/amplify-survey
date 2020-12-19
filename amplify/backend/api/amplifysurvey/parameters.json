@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "amplifysurvey",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authamplifysurvey0a2a0661",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

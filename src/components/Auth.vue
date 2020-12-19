@@ -1,7 +1,7 @@
 <template>
   <div class = "auth">
-    <amplify-authenticator hideSignUp>
-      <amplify-signup hideSignUp />
+    <amplify-authenticator>
+      <amplify-signup />
     </amplify-authenticator>      
   </div>
 </template>
