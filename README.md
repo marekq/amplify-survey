@@ -13,10 +13,11 @@ Take a look at a live demo here; https://survey.marek.rocks/.
 Roadmap
 -------
 
-- [ ] Add the capability to run surveys with different questions based on URL path.
-- [ ] Add the capability to easily create new surveys.
-- [ ] Add GraphQL @auth authorization to get results access.
+- [ ] Add the capability to easily create new surveys through admin portal.
+- [ ] Add GraphQL @auth authorization to get survey results access.
 - [ ] Limit sign-up access to manual approval. 
+- [X] Add the capability to run surveys with different questions based on URL path.
+- [X] Add user profile page. 
 - [X] Add timestamp parsing to admin view. 
 - [X] Add GraphQL API to submit survey results to DynamoDB. 
 - [X] Add Admin portal to review survey results. 

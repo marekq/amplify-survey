@@ -1,6 +1,6 @@
 <template>
-  <div id = "app">
-    <center>
+  <center>
+    <div class = "main">
       <h1>Admin page</h1>
         <br /><br />
         <vuetable 
@@ -9,8 +9,9 @@
           :api-mode = "false"
           :data = "data"
         />
-    </center>
-  </div>
+    </div>
+  </center>
+
 </template>
 
 <script>  
@@ -75,3 +76,10 @@
     }
   }
 </script>
+
+<style>
+  .main {
+    max-width: 1000px;
+    margin: 2em;
+  }
+</style>

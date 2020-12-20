@@ -37,7 +37,6 @@ export default {
   },
   beforeCreate() {
     Hub.listen('auth', data => {
-      console.log('data:', data)
       const { payload } = data
       if (payload.event === 'signIn') {
         this.signedIn = true

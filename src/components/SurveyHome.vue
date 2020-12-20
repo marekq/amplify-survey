@@ -2,9 +2,10 @@
 <template>
     <center>
         <h1>Survey Home</h1>
-        <p>
-          You can visit a demo survey <router-link tag = "a" to = "/survey/demo"><a>here</a>.</router-link>
-        </p>
+        <br />
+        <div id = "main">
+          You can visit a demo survey <router-link tag = "a" to = "/survey/demo"><a>here</a></router-link> or <router-link tag = "a" to = "/survey/test"><a>here</a>.</router-link>
+        </div>
     </center>
 </template>
 
@@ -13,3 +14,10 @@ export default {
   name: 'homesurvey'
 }
 </script>
+
+<style>
+  .main {
+    max-width: 600px;
+    margin: 2em;
+  }
+</style>
