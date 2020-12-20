@@ -2,12 +2,13 @@
 import VueRouter from 'vue-router';
 import { Auth } from 'aws-amplify';
 
-// import components
+// import page components
 import Survey from './components/Survey';
 import Home from './components/Home';
 import AuthComponent from './components/Auth';
 import Admin from './components/Admin';
 import SurveyHome from './components/SurveyHome';
+import Profile from './components/Profile';
 
 // define router rules
 const routes = [
@@ -15,7 +16,8 @@ const routes = [
   { path: '/survey/', component: SurveyHome },
   { path: '/survey/:survey', component: Survey },
   { path: '/auth/', component: AuthComponent },
-  { path: '/admin/', component: Admin, meta: { requiresAuth: true} }
+  { path: '/admin/', component: Admin, meta: { requiresAuth: true } },
+  { path: '/profile/', component: Profile, meta: { requiresAuth: true } }
 ]
 
 // create vue router with history
