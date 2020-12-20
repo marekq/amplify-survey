@@ -70,6 +70,7 @@
       });
 
       this.data = data.data.listSurveys.items;
+      console.log(this.data.sort(function(a, b){return a-b}));
     }
   }
 </script>

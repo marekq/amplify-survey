@@ -4,20 +4,23 @@
         <router-link tag = "p" to = "/">
           <a>Home</a>
         </router-link>
-        <router-link tag = "p" to = "/survey">
+        <router-link tag = "p" to = "/survey/">
           <a>Survey</a>
         </router-link>
-        <router-link tag = "p" to = "/admin" v-if = "signedIn">
-          <a>Admin</a>
+        <router-link tag = "p" to = "/admin/" v-if = "signedIn">
+          <a>Admin Panel</a>
         </router-link>
-        <router-link tag = "p" to = "/auth" v-if = "!signedIn">
-          <a>Login</a>
+        <router-link tag = "p" to = "/auth/" v-if = "!signedIn">
+          <a>Admin Login</a>
+        </router-link>
+        <router-link tag = "p" to = "/profile/" v-if = "signedIn">
+          <a>My Profile</a>
         </router-link>
       </div>
-      <router-view></router-view>
+      <router-view />
       <br /><br />
       <div class = 'sign-out' sticky = "bottom">
-        <amplify-sign-out v-if="signedIn"></amplify-sign-out>
+        <amplify-sign-out v-if = "signedIn"></amplify-sign-out>
       </div>
     </div>
 </template>
@@ -41,7 +44,7 @@ export default {
         this.$router.push('/admin')
       }
       if (payload.event === 'signOut') {
-        this.$router.push('/auth')
+        this.$router.push('/')
         this.signedIn = false
       }
     })
@@ -59,7 +62,7 @@ export default {
   display: flex;
 }
 .nav p {
-  padding: 2% 10% 2% 10%;
+  padding: 2% 2% 2% 2%;
   font-size: 18px;
   color: #000;
 }

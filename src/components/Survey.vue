@@ -35,7 +35,7 @@
   import { createSurvey } from '../graphql/mutations';
 
   // import awsconfig
-  import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
+  import Amplify, { API, graphqlOperation } from 'aws-amplify';
   import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
 
@@ -52,7 +52,7 @@
         language: new LanguageModel({}),
         questions: [
           new QuestionModel({
-            title: 'Welcome',
+            title: 'Welcome to the survey',
             type: QuestionType.SectionBreak
           }),
           new QuestionModel({
@@ -105,27 +105,6 @@
         ]
       }
     },
-
-    beforeCreate() {
-      Hub.listen('auth', data => {
-        const { payload } = data
-        
-        if (payload.event === 'signIn') {
-          this.signedIn = true
-          this.$router.push('/profile')
-        }
-
-        if (payload.event === 'signOut') {
-          this.$router.push('/auth')
-          this.signedIn = false
-        }
-    
-      Auth.currentAuthenticatedUser()
-        .then(() => {
-          this.signedIn = true
-        })
-        .catch(() => this.signedIn = false)
-    })},
 
     mounted() {
       document.addEventListener('keyup', this.onKeyListener)

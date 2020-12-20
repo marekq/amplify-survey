@@ -1,14 +1,39 @@
 <template>
   <div class = "auth">
-    <amplify-authenticator>
-      <amplify-signup />
-    </amplify-authenticator>      
+    <amplify-authenticator username-alias = "email">
+      <amplify-sign-up
+        :form-fields.prop = "formFields"
+        slot = "sign-up"
+        username-alias = "email"
+      />
+      <amplify-sign-in 
+        :form-fields.prop = "formFields"
+        slot = "sign-in" 
+        username-alias = "email"
+      />
+    </amplify-authenticator>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'auth'
+    name: 'auth',
+    data() {
+      return {
+        formFields: [
+        {
+          type: 'email',
+          label: 'E-mail address',
+          required: true
+        },
+        {
+          type: 'password',
+          label: 'Password',
+          required: true
+        }
+      ]
+      }
+    }
   }
 </script>
 

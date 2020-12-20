@@ -2,6 +2,9 @@
 <template>
     <center>
         <h1>Home</h1>
+        <div class = "main">
+            Welcome to the Amplify Survey Website. You can respond to surveys on this page or access the admin portal to see results and create new surveys.
+        </div>
     </center>
 </template>
 
@@ -9,4 +12,12 @@
 export default {
   name: 'home',
 }
+
 </script>
+
+
+<style>
+  .main {
+    width: 600px;
+  }
+</style>
