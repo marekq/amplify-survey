@@ -28,7 +28,7 @@
 
   // set vuetable fields
   const fields = [
-    'timest',
+    'age',
     'a2',
     'a3',
     'a4'
@@ -65,12 +65,12 @@
 
         // get the time difference string and set it in data
         var timediff = prettyMilliseconds(timestamp, {compact: true});
-        survey.timest = timediff;
+        survey.age = timediff;
 
       });
 
-      this.data = data.data.listSurveys.items;
-      console.log(this.data.sort(function(a, b){return a-b}));
+      // set data to listSurvey items, sort by most recent timestamp value 
+      this.data = data.data.listSurveys.items.sort(function(a, b){return b.timest-a.timest});
     }
   }
 </script>
