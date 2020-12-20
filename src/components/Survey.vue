@@ -2,17 +2,16 @@
   <div>
     <flow-form
       id = "app"
-      v-on:complete="onComplete"
-      v-on:submit="onSubmit"
-      v-bind:questions="questions"
-      v-bind:language="language"
-      v-bind:standalone="true"
+      v-on:complete = "onComplete"
+      v-on:submit = "onSubmit"
+      v-bind:questions = "questions"
+      v-bind:language = "language"
     >
      <template v-slot:complete>
-        <div class="f-section-wrap">
+        <div class = "f-section-wrap">
           <p>
-            <span class="fh2">Thank you!</span>
-            <span class="f-section-text">
+            <span class = "fh2">Thank you!</span>
+            <span class = "f-section-text">
               The survey is completed, please feel free to reach out with any questions to @marekq!
             </span>
           </p>
@@ -20,7 +19,7 @@
       </template>
 
       <template v-slot:completeButton>
-        <div class="f-submit" v-if="!submitted">
+        <div class = "f-submit" v-if = "!submitted">
   
         </div>
       </template>
@@ -30,7 +29,7 @@
 
 <script>
   import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form';
-  
+
   // import graphql mutations
   import { createSurvey } from '../graphql/mutations';
 
@@ -44,10 +43,16 @@
     components: {
       FlowForm
     },
+    
+    // set url path of surveypage
+    created() {
+      const urlpath = this.$route.path;
+      this.urlpath = urlpath;
+    },
 
+    // get survey data
     data() {
       return {
-        signedIn: false,
         submitted: false,
         language: new LanguageModel({}),
         questions: [
@@ -64,6 +69,9 @@
                 label: 'One'
               }),
               new ChoiceOption({
+                label: 'Three'
+              }),
+              new ChoiceOption({
                 label: 'Five'
               }),
             ]
@@ -77,6 +85,9 @@
                 label: 'High'
               }),
               new ChoiceOption({
+                label: 'Medium'
+              }),
+              new ChoiceOption({
                 label: 'Low'
               }),
             ]
@@ -86,7 +97,6 @@
             type: QuestionType.MultipleChoice,
             multiple: true,
             required: true,
-            helpText: 'Pick all that apply',
             options: [
               new ChoiceOption({
                 label: '$0 - $100'
@@ -98,7 +108,7 @@
           }),
           new QuestionModel({
             title: 'Comments',
-            type: QuestionType.LongText,
+            type: QuestionType.Text,
             tagline: "Final Question",
             required: true
           })
@@ -126,8 +136,8 @@
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
 
-        // create survey json
-        const survey = {'timest': now };
+        // create survey json with timest and urlpath
+        const survey = {'timest': now, 'urlpath': this.urlpath };
 
         // add survey questions and answers to dict
         var i;

@@ -13,5 +13,6 @@ type Survey @model @auth(rules: [{allow: public}]) {
   a4: String
   q5: String
   a5: String
+  urlpath: String
 }
  
