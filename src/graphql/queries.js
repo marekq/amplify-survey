@@ -17,6 +17,7 @@ export const syncSurveys = /* GraphQL */ `
       items {
         id
         timest
+        survey
         q0
         a0
         q1
@@ -45,6 +46,7 @@ export const getSurvey = /* GraphQL */ `
     getSurvey(id: $id) {
       id
       timest
+      survey
       q0
       a0
       q1
@@ -75,6 +77,7 @@ export const listSurveys = /* GraphQL */ `
       items {
         id
         timest
+        survey
         q0
         a0
         q1

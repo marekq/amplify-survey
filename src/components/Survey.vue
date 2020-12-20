@@ -43,11 +43,11 @@
     components: {
       FlowForm
     },
-    
-    // set url path of surveypage
+
+    // get survey name from url path
     created() {
-      const urlpath = this.$route.path;
-      this.urlpath = urlpath;
+      const survey = this.$route.path;
+      this.survey = survey.substring(survey.lastIndexOf('/') + 1);
     },
 
     // get survey data
@@ -136,8 +136,9 @@
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
 
-        // create survey json with timest and urlpath
-        const survey = {'timest': now, 'urlpath': this.urlpath };
+        // create survey json with timest and survey name
+        const survey = {'timest': now, 'survey': this.survey };
+        console.log(this.survey);
 
         // add survey questions and answers to dict
         var i;
@@ -146,6 +147,8 @@
           survey['q' + i] = String(data['questions'][i]) 
           survey['a' + i] = String(data['answers'][i])
         }
+
+        console.log(survey);
 
         // send survey to graphql
         await API.graphql(graphqlOperation(createSurvey, { input: survey }));

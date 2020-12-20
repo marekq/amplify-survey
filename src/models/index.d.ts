@@ -7,6 +7,7 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 export declare class Survey {
   readonly id: string;
   readonly timest: string;
+  readonly survey: string;
   readonly q0?: string;
   readonly a0?: string;
   readonly q1?: string;
