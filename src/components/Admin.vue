@@ -39,7 +39,7 @@
   // set vuetable fields
   const fields = [
     'age',
-    'survey',
+    'group',
     'a1',
     'a2',
     'a3',

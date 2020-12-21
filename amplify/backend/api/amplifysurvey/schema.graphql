@@ -3,13 +3,14 @@ type Survey
   @auth(rules: 
     [ 
       { allow: public, operations: [create] }, 
-      { allow: groups, groups: ["Admin"], provider: userPools, operations: [read, create, update] } 
+      { allow: groups, groupsField: "group", operations: [read, create, update] },
+      { allow: groups, groups: ["admin"], operations: [read, create, update] }
     ]
   ) 
   {
     id: ID!
     timest: String!
-    survey: String!
+    group: String!
     q0: String
     a0: String
     q1: String

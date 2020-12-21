@@ -80,8 +80,8 @@
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
 
-        // create survey json with timest and survey name
-        const survey = {'timest': now, 'survey': this.survey };
+        // create survey json with timest and group name
+        const survey = {'timest': now, 'group': this.survey };
 
         // add survey questions and answers to dict
         var i;
