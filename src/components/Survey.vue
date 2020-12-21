@@ -12,7 +12,7 @@
           <p>
             <span class = "fh2">Thank you!</span>
             <span class = "f-section-text">
-              The survey is completed, please feel free to reach out with any questions to @marekq!
+              The survey is completed, please feel free to reach out with any questions to us!
             </span>
           </p>
         </div>  
@@ -28,7 +28,8 @@
 </template>
 
 <script>
-  import FlowForm, { QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form';
+  import FlowForm, { LanguageModel } from '@ditdot-dev/vue-flow-form';
+  import questions from './questions'
 
   // import graphql mutations
   import { createSurvey } from '../graphql/mutations';
@@ -55,64 +56,7 @@
       return {
         submitted: false,
         language: new LanguageModel({}),
-        questions: [
-          new QuestionModel({
-            title: this.survey + ' survey',
-            type: QuestionType.SectionBreak
-          }),
-          new QuestionModel({
-            title: 'Rating',
-            type: QuestionType.MultipleChoice,
-            required: true,
-            options: [
-              new ChoiceOption({
-                label: 'One'
-              }),
-              new ChoiceOption({
-                label: 'Three'
-              }),
-              new ChoiceOption({
-                label: 'Five'
-              }),
-            ]
-          }),
-          new QuestionModel({
-            title: 'Experience',
-            type: QuestionType.Dropdown,
-            required: true,
-            options: [
-              new ChoiceOption({
-                label: 'High'
-              }),
-              new ChoiceOption({
-                label: 'Medium'
-              }),
-              new ChoiceOption({
-                label: 'Low'
-              }),
-            ]
-          }),
-          new QuestionModel({
-            title: 'Budget',
-            type: QuestionType.MultipleChoice,
-            multiple: true,
-            required: true,
-            options: [
-              new ChoiceOption({
-                label: '$0 - $100'
-              }),
-              new ChoiceOption({
-                label: '$100 - $500'
-              })
-            ]
-          }),
-          new QuestionModel({
-            title: 'Comments',
-            type: QuestionType.Text,
-            tagline: "Final Question",
-            required: true
-          })
-        ]
+        questions: questions
       }
     },
 
@@ -149,6 +93,7 @@
 
         // send survey to graphql
         await API.graphql(graphqlOperation(createSurvey, { input: survey }));
+        console.log('submitted survey with input data ' + JSON.stringify(survey));
       },
 
       // send data onSubmit

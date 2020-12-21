@@ -10,9 +10,9 @@
 </template>
 
 <script>
-export default {
-  name: 'homesurvey'
-}
+  export default {
+    name: 'homesurvey'
+  }
 </script>
 
 <style>
