@@ -13,8 +13,8 @@ Take a look at a live demo here; https://survey.marek.rocks/.
 Roadmap
 -------
 
-- [ ] Add GraphQL @auth authorization to get survey results access.
-- [ ] Limit sign-up access to manual approval. 
+- [ ] Limit admin sign-up access to manual approval. 
+- [X] Add GraphQL @auth Cognito authorization to get all survey results in admin portal.
 - [X] Add the capability to add surveys with different questions based on URL path.
 - [X] Add user profile page. 
 - [X] Add timestamp parsing to admin view. 

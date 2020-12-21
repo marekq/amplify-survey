@@ -25,7 +25,18 @@
   // import awsconfig and configure amplify
   import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
   import awsconfig from '../aws-exports';
+  import AWSAppSyncClient, { AUTH_TYPE } from 'aws-appsync';
+
   Amplify.configure(awsconfig);
+
+  // create client to retrieve
+  const client = new AWSAppSyncClient({
+    url: awsconfig.aws_appsync_graphqlEndpoint,
+    region: awsconfig.aws_appsync_region,
+    auth: {
+      type: awsconfig.aws_appsync_authenticationType
+    }
+  });
 
   // set vuetable fields
   const fields = [
@@ -55,8 +66,8 @@
     // retrieve data from table
     async mounted () {        
 
-      // get data from graphql
-      var data = await API.graphql({ query: listSurveys });
+      // get data from graphql 
+      var data = await API.graphql({ query: listSurveys, authMode: "AMAZON_COGNITO_USER_POOLS" });
       var tmp = data.data.listSurveys.items;
   		var now = new Date().getTime();
 

@@ -1,18 +1,23 @@
-type Survey @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  timest: String!
-  survey: String!
-  q0: String
-  a0: String
-  q1: String
-  a1: String
-  q2: String
-  a2: String
-  q3: String
-  a3: String
-  q4: String
-  a4: String
-  q5: String
-  a5: String
-}
- 
+type Survey
+  @model 
+  @auth(rules: [ 
+    { allow: public, operations: [create] }, 
+    { allow: private, provider: userPools, operations: [read, create] } 
+  ]) 
+  {
+    id: ID!
+    timest: String!
+    survey: String!
+    q0: String
+    a0: String
+    q1: String
+    a1: String
+    q2: String
+    a2: String
+    q3: String
+    a3: String
+    q4: String
+    a4: String
+    q5: String
+    a5: String
+  }

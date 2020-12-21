@@ -42,6 +42,7 @@
     "@aws-amplify/ui-vue": "^0.2.32",
     "@ditdot-dev/vue-flow-form": "^1.1.6",
     "aws-amplify": "^3.3.13",
+    "aws-appsync": "^4.0.1",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.1",
     "core-js": "^3.8.1",
