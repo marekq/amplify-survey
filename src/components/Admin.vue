@@ -1,15 +1,13 @@
 <template>
   <center>
-    <div class = "main">
       <h1>Admin page</h1>
-        <br /><br />
+        <br />
         <vuetable 
           ref = "vuetable"
           :fields = "fields"
           :api-mode = "false"
           :data = "data"
         />
-    </div>
   </center>
 
 </template>

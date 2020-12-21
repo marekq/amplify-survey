@@ -1,9 +1,11 @@
 type Survey
   @model 
-  @auth(rules: [ 
-    { allow: public, operations: [create] }, 
-    { allow: private, provider: userPools, operations: [read, create] } 
-  ]) 
+  @auth(rules: 
+    [ 
+      { allow: public, operations: [create] }, 
+      { allow: groups, groups: ["Admin"], provider: userPools, operations: [read, create, update] } 
+    ]
+  ) 
   {
     id: ID!
     timest: String!

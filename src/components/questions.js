@@ -2,7 +2,7 @@ import { QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-
 
 const questions = [
     new QuestionModel({
-        title: 'AWS event survey',
+        title: 'Event survey',
         type: QuestionType.SectionBreak
     }),
     new QuestionModel({

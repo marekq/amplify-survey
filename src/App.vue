@@ -1,6 +1,6 @@
 <template>
     <div id = 'app'>
-      <div class = 'nav'>
+      <div class = 'nav' align = 'center'>
         <router-link tag = "p" to = "/">
           <a>Home</a>
         </router-link>
@@ -16,7 +16,7 @@
         <router-link tag = "p" to = "/profile/" v-if = "signedIn">
           <a>My Profile</a>
         </router-link>
-      </div>
+      </div><br />
       <router-view />
       <br /><br />
       <div class = 'sign-out' sticky = "bottom">
@@ -57,13 +57,11 @@ export default {
 </script>
 
 <style>
-.nav {
-  display: flex;
-}
 .nav p {
   padding: 2% 2% 2% 2%;
   font-size: 18px;
   color: #000;
+  margin: auto;
 }
 .nav p:hover {
   opacity: .7;
