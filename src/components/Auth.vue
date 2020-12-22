@@ -2,14 +2,14 @@
   <div class = "auth">
     <amplify-authenticator username-alias = "email">
       <amplify-sign-up
-        :form-fields.prop = "formFields"
+        :form-fields.prop = "signupfields"
         slot = "sign-up"
-        username-alias = "email"
+        username-alias = "username"
       />
       <amplify-sign-in 
-        :form-fields.prop = "formFields"
+        :form-fields.prop = "loginfields"
         slot = "sign-in" 
-        username-alias = "email"
+        username-alias = "username"
       />
     </amplify-authenticator>
   </div>
@@ -20,18 +20,35 @@
     name: 'auth',
     data() {
       return {
-        formFields: [
-        {
-          type: 'email',
-          label: 'E-mail address',
-          required: true
-        },
-        {
-          type: 'password',
-          label: 'Password',
-          required: true
-        }
-      ]
+        signupfields: [
+          {
+            type: 'username',
+            label: 'User name',
+            required: true
+          },
+          {
+            type: 'email',
+            label: 'E-mail address',
+            required: true
+          },
+          {
+            type: 'password',
+            label: 'Password',
+            required: true
+          }
+        ],
+        loginfields: [
+          {
+            type: 'username',
+            label: 'User name',
+            required: true
+          },
+          {
+            type: 'password',
+            label: 'Password',
+            required: true
+          }
+        ]
       }
     }
   }
