@@ -1,4 +1,22 @@
 {
+  "main": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifysurvey-main-202318-authRole",
+      "UnauthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-main-202318-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-main-202318-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplifysurvey-main-202318-deployment",
+      "UnauthRoleName": "amplify-amplifysurvey-main-202318-unauthRole",
+      "StackName": "amplify-amplifysurvey-main-202318",
+      "StackId": "arn:aws:cloudformation:eu-west-1:517266833056:stack/amplify-amplifysurvey-main-202318/879f08c0-4493-11eb-9ec7-0681e80211d9",
+      "AmplifyAppId": "d2wrsp9jb2syo5"
+    },
+    "categories": {
+      "auth": {
+        "amplifysurvey0a2a0661": {}
+      }
+    }
+  },
   "prod": {
     "awscloudformation": {
       "AuthRoleName": "amplify-amplifysurvey-prod-223838-authRole",

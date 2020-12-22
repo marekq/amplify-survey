@@ -1,18 +1,9 @@
 {
   "function": {
-    "AdminQueries75b97b6d": {
-      "service": "Lambda",
-      "providerPlugin": "awscloudformation",
+    "amplifysurvey0a2a0661PostConfirmation": {
       "build": true,
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "amplifysurvey",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ]
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "api": {
@@ -38,50 +29,24 @@
           ]
         }
       }
-    },
-    "AdminQueries": {
-      "service": "API Gateway",
+    }
+  },
+  "storage": {},
+  "auth": {
+    "amplifysurvey0a2a0661": {
+      "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
-          "category": "auth",
-          "resourceName": "amplifysurvey",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
           "category": "function",
-          "resourceName": "AdminQueries75b97b6d",
+          "resourceName": "amplifysurvey0a2a0661PostConfirmation",
+          "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
             "Name"
           ]
         }
-      ]
-    }
-  },
-  "storage": {},
-  "auth": {
-    "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "amplifysurvey",
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID"
-          ]
-        }
-      ]
-    },
-    "amplifysurvey": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      ],
       "customAuth": false
     }
   }
