@@ -1,6 +1,4 @@
 {
-    "identityPoolName": "amplifysurvey0a2a0661_identitypool_0a2a0661",
-    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "amplif0a2a0661",
     "userPoolName": "amplifysurvey0a2a0661_userpool_0a2a0661",
     "autoVerifiedAttributes": [
@@ -32,7 +30,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "0a2a0661",
     "resourceName": "amplifysurvey0a2a0661",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -45,16 +43,31 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{}",
+    "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": [],
-    "dependsOn": []
+    "permissions": [
+        "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ],
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "amplifysurvey0a2a0661PostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "hostedUI": false
 }

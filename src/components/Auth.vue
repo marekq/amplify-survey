@@ -1,15 +1,13 @@
 <template>
   <div class = "auth">
-    <amplify-authenticator username-alias = "email">
+    <amplify-authenticator username-alias = "username">
       <amplify-sign-up
         :form-fields.prop = "signupfields"
         slot = "sign-up"
-        username-alias = "username"
       />
       <amplify-sign-in 
         :form-fields.prop = "loginfields"
         slot = "sign-in" 
-        username-alias = "username"
       />
     </amplify-authenticator>
   </div>
