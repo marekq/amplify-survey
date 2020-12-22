@@ -1,6 +1,6 @@
 {
-    "resourceNameTruncated": "amplif0a2a0661",
-    "userPoolName": "amplifysurvey0a2a0661_userpool_0a2a0661",
+    "resourceNameTruncated": "amplif42805473",
+    "userPoolName": "all",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -16,7 +16,7 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "preferred_username"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -26,10 +26,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "amplif0a2a0661_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplif42805473_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "0a2a0661",
-    "resourceName": "amplifysurvey0a2a0661",
+    "sharedId": "42805473",
+    "resourceName": "amplifysurvey",
     "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -44,18 +44,20 @@
         ]
     },
     "useDefault": "manual",
-    "usernameAttributes": [
-        "email"
-    ],
+    "userPoolGroups": true,
+    "adminQueries": true,
     "triggers": "{}",
-    "userPoolGroupList": [],
+    "hostedUI": false,
+    "userPoolGroupList": [
+        "admin",
+        "demo",
+        "test"
+    ],
+    "adminQueryGroup": "admin",
     "serviceName": "Cognito",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "dependsOn": [],
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "hostedUI": false
+    "dependsOn": []
 }

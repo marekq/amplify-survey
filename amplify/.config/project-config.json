@@ -1,4 +1,7 @@
 {
+  "providers": [
+    "awscloudformation"
+  ],
   "projectName": "amplifysurvey",
   "version": "3.0",
   "frontend": "javascript",
@@ -7,11 +10,8 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "dist",
-      "BuildCommand": "npm run-script build",
-      "StartCommand": "npm run-script serve"
+      "BuildCommand": "yarn build",
+      "StartCommand": "yarn serve"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }
