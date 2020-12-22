@@ -81,7 +81,7 @@
         const now = Math.round(new Date() / 1000);
 
         // create survey json with timest and group name
-        const survey = {'timest': now, 'group': this.survey };
+        const survey = {'timest': now, 'group': this.survey, 'survey': this.survey };
 
         // add survey questions and answers to dict
         var i;

@@ -43,7 +43,8 @@
     'a1',
     'a2',
     'a3',
-    'a4'
+    'a4',
+    'a5'
   ]
 
   // default export
@@ -83,6 +84,7 @@
 
       // set data to listSurvey items, sort by most recent timestamp value 
       this.data = data.data.listSurveys.items.sort(function(a, b){return b.timest-a.timest});
+      
     }
   }
 </script>
