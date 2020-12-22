@@ -1,6 +1,8 @@
 /* eslint-disable-line */ const aws = require('aws-sdk');
 
 exports.handler = async (event, context, callback) => {
+  console.log(event);
+
   const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({ apiVersion: '2016-04-18' });
   const groupParams = {
     GroupName: event.userName,
