@@ -25,7 +25,12 @@
       }
     }
   },
-  "storage": {},
+  "storage": {
+    "surveys": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  },
   "auth": {
     "amplifysurvey0a2a0661": {
       "service": "Cognito",
@@ -43,7 +48,8 @@
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
-            "AppClientID"
+            "AppClientID",
+            "IdentityPoolId"
           ]
         }
       ]

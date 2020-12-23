@@ -33,7 +33,7 @@
             const session = await Auth.currentSession();
 
             // refresh the cognito tokens
-            authuser.refreshSession(session.refreshToken, (err, session) => {
+            await authuser.refreshSession(session.refreshToken, (err, session) => {
                 console.log('refreshing session', err, session);
                 const { idToken, refreshToken, accessToken } = session;
             });
