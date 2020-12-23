@@ -21,16 +21,13 @@
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "nickname",
-        "preferred_username",
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email",
-        "preferred_username"
+        "email"
     ],
     "userpoolClientLambdaRole": "amplif0a2a0661_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": true,
+    "userpoolClientSetAttributes": false,
     "sharedId": "0a2a0661",
     "resourceName": "amplifysurvey0a2a0661",
     "authSelections": "userPoolOnly",
@@ -51,11 +48,7 @@
         "email"
     ],
     "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
-    "userPoolGroupList": [
-        "admin",
-        "demo",
-        "test"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "parentStack": {
         "Ref": "AWS::StackId"
@@ -74,7 +67,7 @@
             ]
         }
     ],
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "hostedUI": false
 }
