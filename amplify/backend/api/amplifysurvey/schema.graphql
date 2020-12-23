@@ -3,8 +3,8 @@ type Survey
   @auth(rules: 
     [ 
       { allow: public, operations: [create] }, 
-      { allow: groups, groupsField: "group", operations: [create, update, read] },
-      { allow: groups, groups: ["admin"], operations: [create, update, read] }
+      { allow: groups, groupsField: "group", operations: [read] },
+      { allow: groups, groups: ["admin"], operations: [read] }
     ]
   ) 
   {
