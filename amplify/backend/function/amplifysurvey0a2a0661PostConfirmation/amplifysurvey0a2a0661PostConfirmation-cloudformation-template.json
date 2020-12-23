@@ -101,7 +101,7 @@
         "Runtime": "nodejs10.x",
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "amplify-amplifysurvey-main-202318-deployment",
+          "S3Bucket": "amplify-amplifysurvey-production-184121-deployment",
           "S3Key": "amplify-builds/amplifysurvey0a2a0661PostConfirmation-2f454e6a6c61766f4f59-build.zip"
         }
       }
