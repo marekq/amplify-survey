@@ -47,27 +47,19 @@
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
-    "userPoolGroupList": [],
+    "triggers": "{}",
+    "userPoolGroupList": [
+        "admin",
+        "demo",
+        "test"
+    ],
     "serviceName": "Cognito",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": [
-        "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
-    ],
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "amplifysurvey0a2a0661PostConfirmation",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        }
-    ],
-    "userPoolGroups": false,
+    "permissions": [],
+    "dependsOn": [],
+    "userPoolGroups": true,
     "adminQueries": false,
     "hostedUI": false
 }

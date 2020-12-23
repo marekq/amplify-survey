@@ -1,11 +1,5 @@
 {
-  "function": {
-    "amplifysurvey0a2a0661PostConfirmation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
+  "function": {},
   "api": {
     "amplifysurvey": {
       "service": "AppSync",
@@ -23,7 +17,7 @@
               "authenticationType": "API_KEY",
               "apiKeyConfig": {
                 "apiKeyExpirationDays": 7,
-                "description": "surveykey"
+                "description": "public"
               }
             }
           ]
@@ -36,18 +30,23 @@
     "amplifysurvey0a2a0661": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
-          "category": "function",
-          "resourceName": "amplifysurvey0a2a0661PostConfirmation",
-          "triggerProvider": "Cognito",
+          "category": "auth",
+          "resourceName": "amplifysurvey0a2a0661",
           "attributes": [
-            "Arn",
-            "Name"
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
           ]
         }
-      ],
-      "customAuth": false
+      ]
     }
   }
 }

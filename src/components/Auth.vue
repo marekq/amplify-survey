@@ -20,11 +20,6 @@
       return {
         formFields: [
           {
-            type: "username",
-            placeholder: "Username",
-            required: true
-          },
-          {
             type: "password",
             placeholder: "Password",
             required: true
