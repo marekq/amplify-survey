@@ -6,8 +6,10 @@
         slot = "sign-up"
         :form-fields.prop = "formFields" 
       />
-      <amplify-sign-in         
-        username-alias = "email" 
+      <amplify-sign-in   
+        :form-fields.prop = "formFields" 
+        slot = "sign-in"
+
       />
     </amplify-authenticator>  
   </div>
@@ -20,13 +22,15 @@
       return {
         formFields: [
           {
-            type: "password",
-            placeholder: "Password",
+            type: "email",
+            placeholder: " ",
+            label: "E-mail",
             required: true
           },
           {
-            type: "email",
-            placeholder: "Email Address",
+            type: "password",
+            placeholder: " ",
+            label: "Password",
             required: true
           }
         ]
