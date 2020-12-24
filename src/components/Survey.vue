@@ -40,10 +40,7 @@
   import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
 
-  // set appsync authentication to api key instead of cognito token, as this is an unauthenticated request
-  Amplify.configure({
-    "aws_appsync_authenticationType": "API_KEY", 
-  });
+  
 
   export default {
     name: 'vuesurvey',
@@ -59,7 +56,7 @@
 
     // get survey data
     data() {
-
+      
       return {
         submitted: false,
         language: new LanguageModel({}),
@@ -88,7 +85,6 @@
         x.Body.text().then(string => { 
           console.log(string)
         })
-
       },
 
       async createNewSurvey(data) {
@@ -107,9 +103,12 @@
           survey['a' + i] = String(data['answers'][i])
         }
 
+        // set appsync authentication to api key instead of cognito token, as this is an unauthenticated request
+        Amplify.configure({"aws_appsync_authenticationType": "API_KEY"});
+
         // send survey to graphql
-        await API.graphql(graphqlOperation(createSurvey, { input: survey } ));
-        console.log('submitted survey with input data ' + JSON.stringify(survey));
+        API.graphql(graphqlOperation(createSurvey, { input: survey } ));
+        console.log('submitted survey with api key and input data ' + JSON.stringify(survey));
       },
 
       // send data onSubmit
