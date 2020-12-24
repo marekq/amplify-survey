@@ -1,6 +1,4 @@
 {
-    "identityPoolName": "amplifysurvey0a2a0661_identitypool_f615f900",
-    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "amplif0a2a0661",
     "userPoolName": "amplifysurvey0a2a0661_userpool_0a2a0661",
     "autoVerifiedAttributes": [
@@ -23,16 +21,18 @@
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
+        "preferred_username",
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+        "email",
+        "preferred_username"
     ],
     "userpoolClientLambdaRole": "amplif0a2a0661_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "sharedId": "0a2a0661",
     "resourceName": "amplifysurvey0a2a0661",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -49,7 +49,7 @@
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{}",
+    "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
     "userPoolGroupList": [
         "admin",
         "demo",
@@ -59,8 +59,20 @@
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": [],
-    "dependsOn": [],
+    "permissions": [
+        "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ],
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "amplifysurvey0a2a0661PostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
     "userPoolGroups": true,
     "adminQueries": false,
     "hostedUI": false

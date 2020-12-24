@@ -1,5 +1,6 @@
 <template>
   <div>
+    <a href="#" @click="getQuestionsS3('all.json')">all.json</a>
     <flow-form
       id = "app"
       v-on:complete = "onComplete"
@@ -35,7 +36,7 @@
   import { createSurvey } from '../graphql/mutations';
 
   // import awsconfig
-  import Amplify, { API, graphqlOperation } from 'aws-amplify';
+  import Amplify, { API, graphqlOperation, Storage } from 'aws-amplify';
   import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
 
@@ -54,11 +55,11 @@
     beforeCreate() {
       const survey = this.$route.path;
       this.survey = survey.substring(survey.lastIndexOf('/') + 1);
-
     },
 
     // get survey data
     data() {
+
       return {
         submitted: false,
         language: new LanguageModel({}),
@@ -79,6 +80,15 @@
       /* eslint-disable-next-line no-unused-vars */
       onComplete(completed, questionList) {
         this.onSendData();
+      },
+
+      async getQuestionsS3() {
+        const x = await Storage.get('all.json', {'download': true});
+
+        x.Body.text().then(string => { 
+          console.log(string)
+        })
+
       },
 
       async createNewSurvey(data) {
@@ -121,6 +131,7 @@
 
       // get the question data
       getData() {
+
         const data = {
           questions: [],
           answers: [],
