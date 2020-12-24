@@ -1,15 +1,28 @@
 <template>
-  <center>
-      <h1>Admin page</h1>
-        <br />
-        <vuetable 
-          ref = "vuetable"
-          :fields = "fields"
-          :api-mode = "false"
-          :data = "data"
-        />
-  </center>
+  <div class="container">
+    <h1>Admin page</h1>
 
+    <div id = "app">
+      <table width = "100%">
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Survey</th>
+            <th>Satisfaction</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(row, index) in data" :key="`${row.id}`">
+            <td>{{ row.age }}</td>
+            <td>{{ row.survey }}</td>
+            <td>{{ row.a1 }}</td>
+            <td>{{ row.a5 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>  
@@ -93,5 +106,8 @@
   .main {
     max-width: 1000px;
     margin: 2em;
+  },
+  td {
+    padding: 10px;
   }
 </style>

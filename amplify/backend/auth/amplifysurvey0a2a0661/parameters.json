@@ -26,7 +26,8 @@
     ],
     "userpoolClientReadAttributes": [
         "email",
-        "preferred_username"
+        "preferred_username",
+        "email_verified"
     ],
     "userpoolClientLambdaRole": "amplif0a2a0661_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
