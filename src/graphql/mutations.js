@@ -11,6 +11,7 @@ export const updateSurvey = /* GraphQL */ `
       timest
       group
       survey
+      user
       q0
       a0
       q1
@@ -38,6 +39,7 @@ export const deleteSurvey = /* GraphQL */ `
       timest
       group
       survey
+      user
       q0
       a0
       q1
@@ -65,6 +67,7 @@ export const createSurvey = /* GraphQL */ `
       timest
       group
       survey
+      user
       q0
       a0
       q1

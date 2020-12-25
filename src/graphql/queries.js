@@ -8,6 +8,7 @@ export const getSurvey = /* GraphQL */ `
       timest
       group
       survey
+      user
       q0
       a0
       q1
@@ -37,6 +38,7 @@ export const listSurveys = /* GraphQL */ `
         timest
         group
         survey
+        user
         q0
         a0
         q1

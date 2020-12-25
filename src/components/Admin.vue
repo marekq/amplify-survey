@@ -9,7 +9,7 @@
             <th>Age</th>
             <th>Survey</th>
             <th>Satisfaction</th>
-            <th>Comments</th>
+            <th>User</th>
           </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
             <td>{{ row.age }}</td>
             <td>{{ row.survey }}</td>
             <td>{{ row.a1 }}</td>
-            <td>{{ row.a5 }}</td>
+            <td>{{ row.user }}</td>
           </tr>
         </tbody>
       </table>
@@ -78,7 +78,7 @@
     // retrieve data from table
     async mounted () {        
 
-      // get data from graphql 
+      // get data from graphql using cognito auth
       var data = await API.graphql({ query: listSurveys, authMode: "AMAZON_COGNITO_USER_POOLS" });
       var tmp = data.data.listSurveys.items;
   		var now = new Date().getTime();

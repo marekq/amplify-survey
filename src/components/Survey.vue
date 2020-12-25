@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="#" @click="getQuestionsS3('all.json')">all.json</a>
+    <a href="#" @click="getQuestionsS3('all.json')"></a>
     <flow-form
       id = "app"
       v-on:complete = "onComplete"
@@ -36,11 +36,9 @@
   import { createSurvey } from '../graphql/mutations';
 
   // import awsconfig
-  import Amplify, { API, graphqlOperation, Storage } from 'aws-amplify';
+  import Amplify, { API, Auth, graphqlOperation, Storage } from 'aws-amplify';
   import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
-
-  
 
   export default {
     name: 'vuesurvey',
@@ -49,14 +47,29 @@
     },
 
     // get survey name from url path
-    beforeCreate() {
+    async beforeCreate() {
       const survey = this.$route.path;
       this.survey = survey.substring(survey.lastIndexOf('/') + 1);
+
+      // if no user is logged in, use api key for appsync
+      if (Auth.user === null) {
+        console.log('no user logged in, setting api key for auth');
+        Amplify.configure({"aws_appsync_authenticationType": "API_KEY"});
+        this.user = 'none'
+      
+      // if a user is logged in, use cognito auth for appsync
+      } else {
+        const user = Auth.user.attributes.email
+        console.log('user ' + user + ' logged in');
+        Amplify.configure({"aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"});
+        this.user = user;
+
+      }
     },
 
     // get survey data
     data() {
-      
+    
       return {
         submitted: false,
         language: new LanguageModel({}),
@@ -65,11 +78,11 @@
     },
 
     mounted() {
-      document.addEventListener('keyup', this.onKeyListener)
+      document.addEventListener('keyup', this.onKeyListener);
     },
 
     beforeDestroy() {
-      document.removeEventListener('keyup', this.onKeyListener)
+      document.removeEventListener('keyup', this.onKeyListener);
     },
 
     methods: {
@@ -79,6 +92,7 @@
         this.onSendData();
       },
 
+      // WIP - get question data from S3
       async getQuestionsS3() {
         const x = await Storage.get('all.json', {'download': true});
 
@@ -93,7 +107,7 @@
         const now = Math.round(new Date() / 1000);
 
         // create survey json with timest and group name
-        const survey = {'timest': now, 'group': this.survey, 'survey': this.survey };
+        const survey = {'timest': now, 'group': this.survey, 'survey': this.survey, 'user': this.user };
 
         // add survey questions and answers to dict
         var i;
@@ -101,14 +115,12 @@
 
           survey['q' + i] = String(data['questions'][i]) 
           survey['a' + i] = String(data['answers'][i])
-        }
-
-        // set appsync authentication to api key instead of cognito token, as this is an unauthenticated request
-        Amplify.configure({"aws_appsync_authenticationType": "API_KEY"});
+        };
 
         // send survey to graphql
         API.graphql(graphqlOperation(createSurvey, { input: survey } ));
-        console.log('submitted survey with api key and input data ' + JSON.stringify(survey));
+        console.log('submitted survey with input data ' + JSON.stringify(survey));
+
       },
 
       // send data onSubmit
@@ -135,6 +147,7 @@
           questions: [],
           answers: [],
         };
+
         this.questions.forEach((question) => {
           if (question.title) {
             let answer = question.answer;
