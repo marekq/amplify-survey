@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "amplifysurvey",
+    "identityPoolName": "surveypool",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "amplif21ffb065",
-    "userPoolName": "amplifysurveypool",
+    "resourceNameTruncated": "amplif1348e324",
+    "userPoolName": "userpool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -22,20 +22,19 @@
         "preferred_username"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": "90",
+    "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
         "email",
         "preferred_username"
     ],
     "userpoolClientReadAttributes": [
         "email",
-        "nickname",
         "preferred_username",
         "email_verified"
     ],
-    "userpoolClientLambdaRole": "amplif21ffb065_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplif1348e324_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
-    "sharedId": "21ffb065",
+    "sharedId": "1348e324",
     "resourceName": "amplifysurvey",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
@@ -52,9 +51,6 @@
     },
     "useDefault": "manual",
     "thirdPartyAuth": false,
-    "usernameAttributes": [
-        "email"
-    ],
     "userPoolGroups": true,
     "adminQueries": false,
     "triggers": "{}",
