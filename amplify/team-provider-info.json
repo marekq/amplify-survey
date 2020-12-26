@@ -15,11 +15,6 @@
       "auth": {
         "amplifysurvey0a2a0661": {},
         "userPoolGroups": {}
-      },
-      "function": {
-        "amplifysurvey0a2a0661PostConfirmation": {
-          "GROUP": "demo"
-        }
       }
     }
   },

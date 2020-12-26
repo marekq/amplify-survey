@@ -1,11 +1,5 @@
 {
-  "function": {
-    "amplifysurvey0a2a0661PostConfirmation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
+  "function": {},
   "api": {
     "amplifysurvey": {
       "service": "AppSync",
@@ -41,17 +35,7 @@
     "amplifysurvey0a2a0661": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "amplifysurvey0a2a0661PostConfirmation",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false
     },
     "userPoolGroups": {
