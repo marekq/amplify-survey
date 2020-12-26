@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "amplifysurvey4f076bd5_identitypool_4f076bd5",
+    "identityPoolName": "amplifysurvey",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "amplif0a2a0661",
-    "userPoolName": "amplifysurvey0a2a0661_userpool_0a2a0661",
+    "resourceNameTruncated": "amplif21ffb065",
+    "userPoolName": "amplifysurveypool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,23 +18,23 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "email",
+        "preferred_username"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": "30",
+    "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "preferred_username",
-        "email"
+        "email",
+        "preferred_username"
     ],
     "userpoolClientReadAttributes": [
         "email",
-        "preferred_username",
-        "email_verified"
+        "preferred_username"
     ],
-    "userpoolClientLambdaRole": "amplif0a2a0661_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplif21ffb065_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
-    "sharedId": "0a2a0661",
-    "resourceName": "amplifysurvey0a2a0661",
+    "sharedId": "21ffb065",
+    "resourceName": "amplifysurvey",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -49,10 +49,14 @@
         ]
     },
     "useDefault": "manual",
+    "thirdPartyAuth": false,
     "usernameAttributes": [
         "email"
     ],
+    "userPoolGroups": true,
+    "adminQueries": false,
     "triggers": "{}",
+    "hostedUI": false,
     "userPoolGroupList": [
         "admin",
         "demo",
@@ -63,9 +67,5 @@
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "dependsOn": [],
-    "userPoolGroups": true,
-    "adminQueries": false,
-    "hostedUI": false,
-    "thirdPartyAuth": false
+    "dependsOn": []
 }

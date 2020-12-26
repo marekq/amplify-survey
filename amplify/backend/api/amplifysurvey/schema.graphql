@@ -2,7 +2,7 @@ type Survey
   @model 
   @auth(rules: 
     [ 
-      { allow: public, operations: [create] }, 
+      { allow: private, provider: userPools, operations: [create] }, 
       { allow: groups, groupsField: "group", operations: [read, create] },
       { allow: groups, groups: ["admin"], operations: [read, create] }
     ]

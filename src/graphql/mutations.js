@@ -1,6 +1,34 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createSurvey = /* GraphQL */ `
+  mutation CreateSurvey(
+    $input: CreateSurveyInput!
+    $condition: ModelSurveyConditionInput
+  ) {
+    createSurvey(input: $input, condition: $condition) {
+      id
+      timest
+      group
+      survey
+      user
+      q0
+      a0
+      q1
+      a1
+      q2
+      a2
+      q3
+      a3
+      q4
+      a4
+      q5
+      a5
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const updateSurvey = /* GraphQL */ `
   mutation UpdateSurvey(
     $input: UpdateSurveyInput!
@@ -35,34 +63,6 @@ export const deleteSurvey = /* GraphQL */ `
     $condition: ModelSurveyConditionInput
   ) {
     deleteSurvey(input: $input, condition: $condition) {
-      id
-      timest
-      group
-      survey
-      user
-      q0
-      a0
-      q1
-      a1
-      q2
-      a2
-      q3
-      a3
-      q4
-      a4
-      q5
-      a5
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createSurvey = /* GraphQL */ `
-  mutation CreateSurvey(
-    $input: CreateSurveyInput!
-    $condition: ModelSurveyConditionInput
-  ) {
-    createSurvey(input: $input, condition: $condition) {
       id
       timest
       group

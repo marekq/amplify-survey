@@ -9,16 +9,12 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authamplifysurvey0a2a0661"
+              "userPoolId": "authamplifysurvey"
             }
           },
           "additionalAuthenticationProviders": [
             {
-              "authenticationType": "API_KEY",
-              "apiKeyConfig": {
-                "apiKeyExpirationDays": 90,
-                "description": "survey"
-              }
+              "authenticationType": "AWS_IAM"
             }
           ]
         }
@@ -32,19 +28,13 @@
     }
   },
   "auth": {
-    "amplifysurvey0a2a0661": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    },
     "userPoolGroups": {
       "service": "Cognito-UserPool-Groups",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "amplifysurvey0a2a0661",
+          "resourceName": "amplifysurvey",
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
@@ -53,6 +43,12 @@
           ]
         }
       ]
+    },
+    "amplifysurvey": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
     }
   }
 }

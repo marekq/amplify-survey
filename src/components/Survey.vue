@@ -54,7 +54,10 @@
       // if no user is logged in, print status
       if (Auth.user === null) {
         console.log('no user logged in, setting api key for auth');
-        this.user = 'none'
+        this.user = 'none';
+        Amplify.configure({
+          "aws_appsync_authenticationType": "API_KEY"
+        });
       
       // if a user is logged in, print username
       } else {
@@ -99,7 +102,7 @@
         })
       },
 
-      async createNewSurvey(data) {
+      createNewSurvey(data) {
 
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
