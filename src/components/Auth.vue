@@ -4,11 +4,7 @@
       <amplify-sign-up
         username-alias = "email" 
         slot = "sign-up"
-        :form-fields.prop = "formFields" 
-      />
-      <amplify-sign-in   
-        :form-fields.prop = "formFields" 
-        slot = "sign-in"
+        :form-fields.prop = "registerFields" 
       />
     </amplify-authenticator>  
   </div>
@@ -19,7 +15,7 @@
     name: 'auth',
     data() {
       return {
-        formFields: [
+        registerFields: [
           {
             type: "preferred_username",
             placeholder: " ",
@@ -30,6 +26,20 @@
             type: "email",
             placeholder: " ",
             label: "E-mail",
+            required: true
+          },
+          {
+            type: "password",
+            placeholder: " ",
+            label: "Password",
+            required: true
+          }
+        ],
+        loginFields: [
+          {
+            type: "preferred_username",
+            placeholder: " ",
+            label: "Username",
             required: true
           },
           {

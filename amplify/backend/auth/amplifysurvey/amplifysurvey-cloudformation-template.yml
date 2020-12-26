@@ -75,10 +75,10 @@ Parameters:
   userpoolClientGenerateSecret:
     Type: String
             
-    
   userpoolClientRefreshTokenValidity:
-    Type: Number
-          
+    Type: String
+  
+            
         
   userpoolClientWriteAttributes:
     Type: CommaDelimitedList
@@ -141,7 +141,6 @@ Parameters:
   userPoolGroupList:
     Type: CommaDelimitedList
       
-            
   serviceName:
     Type: String
   
@@ -158,6 +157,7 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 

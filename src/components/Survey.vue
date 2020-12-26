@@ -51,21 +51,6 @@
       const survey = this.$route.path;
       this.survey = survey.substring(survey.lastIndexOf('/') + 1);
 
-      // if no user is logged in, print status
-      if (Auth.user === null) {
-        console.log('no user logged in, setting api key for auth');
-        this.user = 'none';
-        Amplify.configure({
-          "aws_appsync_authenticationType": "API_KEY"
-        });
-      
-      // if a user is logged in, print username
-      } else {
-        const user = Auth.user.attributes.email
-        console.log('user ' + user + ' logged in');
-        this.user = user;
-
-      }
     },
 
     // get survey data
@@ -116,6 +101,21 @@
 
           survey['q' + i] = String(data['questions'][i]) 
           survey['a' + i] = String(data['answers'][i])
+        };
+
+        // if no user is logged in, print status
+        if (Auth.user === null) {
+          console.log('no user logged in, using aws_iam key for auth');
+          this.user = 'none';
+          Amplify.configure({
+            "aws_appsync_authenticationType": "AWS_IAM"
+          });
+        
+        // if a user is logged in, print username
+        } else {
+          const user = Auth.user.attributes.email
+          console.log('user ' + user + ' logged in, ussing cognito for auth');
+          this.user = user;
         };
 
         // send survey to graphql

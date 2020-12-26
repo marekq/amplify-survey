@@ -22,14 +22,16 @@
         "preferred_username"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "90",
     "userpoolClientWriteAttributes": [
         "email",
         "preferred_username"
     ],
     "userpoolClientReadAttributes": [
         "email",
-        "preferred_username"
+        "nickname",
+        "preferred_username",
+        "email_verified"
     ],
     "userpoolClientLambdaRole": "amplif21ffb065_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
