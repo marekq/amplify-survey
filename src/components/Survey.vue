@@ -51,17 +51,15 @@
       const survey = this.$route.path;
       this.survey = survey.substring(survey.lastIndexOf('/') + 1);
 
-      // if no user is logged in, use api key for appsync
+      // if no user is logged in, print status
       if (Auth.user === null) {
         console.log('no user logged in, setting api key for auth');
-        Amplify.configure({"aws_appsync_authenticationType": "API_KEY"});
         this.user = 'none'
       
-      // if a user is logged in, use cognito auth for appsync
+      // if a user is logged in, print username
       } else {
         const user = Auth.user.attributes.email
         console.log('user ' + user + ' logged in');
-        Amplify.configure({"aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"});
         this.user = user;
 
       }

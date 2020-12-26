@@ -79,7 +79,7 @@
     async mounted () {        
 
       // get data from graphql using cognito auth
-      var data = await API.graphql({ query: listSurveys, authMode: "AMAZON_COGNITO_USER_POOLS" });
+      var data = await API.graphql({ query: listSurveys });
       var tmp = data.data.listSurveys.items;
   		var now = new Date().getTime();
 

@@ -1,4 +1,6 @@
 {
+    "identityPoolName": "amplifysurvey4f076bd5_identitypool_4f076bd5",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "amplif0a2a0661",
     "userPoolName": "amplifysurvey0a2a0661_userpool_0a2a0661",
     "autoVerifiedAttributes": [
@@ -19,7 +21,7 @@
         "email"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "1",
     "userpoolClientWriteAttributes": [
         "preferred_username",
         "email"
@@ -33,7 +35,7 @@
     "userpoolClientSetAttributes": true,
     "sharedId": "0a2a0661",
     "resourceName": "amplifysurvey0a2a0661",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -76,5 +78,6 @@
     ],
     "userPoolGroups": true,
     "adminQueries": false,
-    "hostedUI": false
+    "hostedUI": false,
+    "thirdPartyAuth": false
 }
