@@ -89,6 +89,21 @@
 
       createNewSurvey(data) {
 
+        // if no user is logged in, print status
+        if (Auth.user === null) {
+          console.log('no user logged in, using aws_iam key for auth');
+          this.user = 'none';
+          Amplify.configure({
+            "aws_appsync_authenticationType": "AWS_IAM"
+          });
+        
+        // if a user is logged in, print username
+        } else {
+          const user = Auth.user.username;
+          console.log('user ' + user + ' logged in, using cognito for auth');
+          this.user = user;
+        };
+
         // get unix timestamp
         const now = Math.round(new Date() / 1000);
 
@@ -101,21 +116,6 @@
 
           survey['q' + i] = String(data['questions'][i]) 
           survey['a' + i] = String(data['answers'][i])
-        };
-
-        // if no user is logged in, print status
-        if (Auth.user === null) {
-          console.log('no user logged in, using aws_iam key for auth');
-          this.user = 'none';
-          Amplify.configure({
-            "aws_appsync_authenticationType": "AWS_IAM"
-          });
-        
-        // if a user is logged in, print username
-        } else {
-          const user = Auth.user.attributes.email
-          console.log('user ' + user + ' logged in, ussing cognito for auth');
-          this.user = user;
         };
 
         // send survey to graphql

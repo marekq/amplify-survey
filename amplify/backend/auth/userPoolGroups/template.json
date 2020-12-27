@@ -1,23 +1,23 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Parameters": {
-        "authamplifysurveyUserPoolId": {
+        "authauthUserPoolId": {
             "Type": "String",
-            "Default": "authamplifysurveyUserPoolId"
+            "Default": "authauthUserPoolId"
         },
         
-        "authamplifysurveyIdentityPoolId": {
+        "authauthIdentityPoolId": {
             "Type": "String",
-            "Default": "authamplifysurveyIdentityPoolId"
+            "Default": "authauthIdentityPoolId"
         },
         
-        "authamplifysurveyAppClientID": {
+        "authauthAppClientID": {
             "Type": "String",
-            "Default": "authamplifysurveyAppClientID"
+            "Default": "authauthAppClientID"
         },
-        "authamplifysurveyAppClientIDWeb": {
+        "authauthAppClientIDWeb": {
             "Type": "String",
-            "Default": "authamplifysurveyAppClientIDWeb"
+            "Default": "authauthAppClientIDWeb"
         },
         "AuthRoleArn": {
             "Type": "String"
@@ -55,7 +55,7 @@
               },
               
               "UserPoolId" : {
-                "Ref": "authamplifysurveyUserPoolId"
+                "Ref": "authauthUserPoolId"
               } 
             }
         },
@@ -68,7 +68,7 @@
                         "",
                         [
                           {
-                            "Ref": "authamplifysurveyUserPoolId"
+                            "Ref": "authauthUserPoolId"
                           },
                           "-adminGroupRole"
                         ]
@@ -85,7 +85,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authamplifysurveyIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authauthIdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -109,7 +109,7 @@
               },
               
               "UserPoolId" : {
-                "Ref": "authamplifysurveyUserPoolId"
+                "Ref": "authauthUserPoolId"
               } 
             }
         },
@@ -122,7 +122,7 @@
                         "",
                         [
                           {
-                            "Ref": "authamplifysurveyUserPoolId"
+                            "Ref": "authauthUserPoolId"
                           },
                           "-demoGroupRole"
                         ]
@@ -139,7 +139,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authamplifysurveyIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authauthIdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -163,7 +163,7 @@
               },
               
               "UserPoolId" : {
-                "Ref": "authamplifysurveyUserPoolId"
+                "Ref": "authauthUserPoolId"
               } 
             }
         },
@@ -176,7 +176,7 @@
                         "",
                         [
                           {
-                            "Ref": "authamplifysurveyUserPoolId"
+                            "Ref": "authauthUserPoolId"
                           },
                           "-testGroupRole"
                         ]
@@ -193,7 +193,7 @@
                             },
                             "Action": "sts:AssumeRoleWithWebIdentity",
                             "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authamplifysurveyIdentityPoolId"}},
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authauthIdentityPoolId"}},
                               "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
                             }
                         }
@@ -219,7 +219,7 @@
                                 "",
                                 [
                                   
-                                  "amplifysurvey",
+                                  "auth",
                                   "-ExecutionRole-",
                                   {
                                     "Ref": "env"
@@ -378,16 +378,16 @@
                     "Ref": "UnauthRoleArn"
                 },
                 "identityPoolId": {
-                    "Ref": "authamplifysurveyIdentityPoolId"
+                    "Ref": "authauthIdentityPoolId"
                 },
                 "userPoolId": {
-                    "Ref": "authamplifysurveyUserPoolId"
+                    "Ref": "authauthUserPoolId"
                 },
                 "appClientIDWeb": {
-                    "Ref": "authamplifysurveyAppClientIDWeb"
+                    "Ref": "authauthAppClientIDWeb"
                 },
                 "appClientID": {
-                    "Ref": "authamplifysurveyAppClientID"
+                    "Ref": "authauthAppClientID"
                 },
                 "region": {
                     "Ref": "AWS::Region"

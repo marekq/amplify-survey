@@ -10,9 +10,9 @@ type Survey
   {
     id: ID!
     timest: String!
-    group: String
-    survey: String
-    user: String
+    group: String!
+    survey: String!
+    user: String!
     q0: String
     a0: String
     q1: String

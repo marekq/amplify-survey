@@ -5,7 +5,7 @@
   "CreateAPIKey": 0,
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authamplifysurvey",
+      "authauth",
       "Outputs.UserPoolId"
     ]
   }

@@ -52,5 +52,41 @@
         "amplifysurvey": {}
       }
     }
+  },
+  "survey": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifysurvey-survey-133802-authRole",
+      "UnauthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-survey-133802-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-survey-133802-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplifysurvey-survey-133802-deployment",
+      "UnauthRoleName": "amplify-amplifysurvey-survey-133802-unauthRole",
+      "StackName": "amplify-amplifysurvey-survey-133802",
+      "StackId": "arn:aws:cloudformation:eu-west-1:517266833056:stack/amplify-amplifysurvey-survey-133802/5f4730e0-4840-11eb-b9c4-021da3e67f8d",
+      "AmplifyAppId": "d2wrsp9jb2syo5"
+    },
+    "categories": {
+      "auth": {
+        "cognito": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifysurvey-dev-142435-authRole",
+      "UnauthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-dev-142435-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::517266833056:role/amplify-amplifysurvey-dev-142435-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amplifysurvey-dev-142435-deployment",
+      "UnauthRoleName": "amplify-amplifysurvey-dev-142435-unauthRole",
+      "StackName": "amplify-amplifysurvey-dev-142435",
+      "StackId": "arn:aws:cloudformation:eu-west-1:517266833056:stack/amplify-amplifysurvey-dev-142435/df807360-4846-11eb-97b9-06bb97a52f0b",
+      "AmplifyAppId": "d2wrsp9jb2syo5"
+    },
+    "categories": {
+      "auth": {
+        "auth": {}
+      }
+    }
   }
 }

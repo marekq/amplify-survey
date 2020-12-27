@@ -4,6 +4,7 @@
         <h1>Your profile</h1>
         <br />
         <table width = "80%">
+            <tr><td>username </td><td> {{this.data.authuser}}</td></tr>
             <tr><td>email </td><td> {{this.data.authemail}}</td></tr>
             <tr><td>verified </td><td>{{this.data.authverified}}</td></tr>
             <tr><td>groups </td><td> {{this.data.authgroups}}</td></tr>
@@ -41,6 +42,7 @@
             // get email and verified status
             this.data.authemail = authuser.attributes.email;
             this.data.authverified = authuser.attributes.email_verified;
+            this.data.authuser = authuser.username;
 
             // get the cognito group user value or set to none if missing
             if ( authuser.signInUserSession.idToken.payload["cognito:groups"] ) {

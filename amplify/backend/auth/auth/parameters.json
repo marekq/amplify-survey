@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "userpool",
+    "identityPoolName": "identitypool",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "amplif7c89f5b5",
-    "userPoolName": "surveypool",
+    "resourceNameTruncated": "amplife68c101b",
+    "userPoolName": "userpool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,8 +18,7 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email",
-        "preferred_username"
+        "email"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -29,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "amplif7c89f5b5_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "authe68c101b_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7c89f5b5",
-    "resourceName": "amplifysurvey",
+    "sharedId": "e68c101b",
+    "resourceName": "auth",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -48,15 +47,11 @@
     },
     "useDefault": "manual",
     "thirdPartyAuth": false,
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "triggers": "{}",
     "hostedUI": false,
-    "userPoolGroupList": [
-        "admin",
-        "demo",
-        "test"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "parentStack": {
         "Ref": "AWS::StackId"
