@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class = "container">
     <h1>Admin page</h1>
 
     <div id = "app" v-if = "data.authgroups !== 'none'">
-      <p>Viewing {{this.data.authgroups}} group survey responses</p>
+      <p><i>Viewing {{this.data.authgroups}} group survey responses</i></p>
       <table width = "100%">
         <thead>
           <tr>

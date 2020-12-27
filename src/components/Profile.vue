@@ -8,7 +8,7 @@
             <tr><td>email </td><td> {{this.data.authemail}}</td></tr>
             <tr><td>verified </td><td>{{this.data.authverified}}</td></tr>
             <tr><td>groups </td><td> {{this.data.authgroups}}</td></tr>
-            <tr><td>your survey link </td><td><router-link tag = "a" to = "/survey/marek"><a>{{this.surveyurl}}</a></router-link></td></tr>
+            <tr><td>your survey link </td><td><router-link tag = "a" to = "/survey/marek"><a>{{this.data.surveyurl}}</a></router-link></td></tr>
         </table>
     </center>
 </template>
@@ -36,7 +36,7 @@
             const session = await Auth.currentSession();
 
             // set the base survey url for profile page
-            this.surveyurl = window.location.origin + '/' + authuser.username + '/survey/'
+            this.data.surveyurl = window.location.origin + '/survey/' + authuser.username + '/'
 
             // refresh the cognito tokens once
             authuser.refreshSession(session.refreshToken, (err, session) => {
