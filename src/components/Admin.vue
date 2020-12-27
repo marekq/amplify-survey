@@ -41,7 +41,7 @@
 
   // import awsconfig and configure amplify
   import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
-  import AWSAppSyncClient from 'aws-appsync';
+  import AWSAppSyncClient from 'aws-appsync/lib/client';
 
   // setup amplify config
   import awsconfig from '../aws-exports';

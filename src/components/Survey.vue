@@ -29,14 +29,15 @@
 </template>
 
 <script>
+  // import flowform for survey and questions
   import FlowForm, { LanguageModel } from '@ditdot-dev/vue-flow-form';
   import questions from './questions'
 
-  // import graphql mutations
+  // import graphql mutations and amplify libs
   import { createSurvey } from '../graphql/mutations';
+  import Amplify, { API, Auth, graphqlOperation, Storage } from 'aws-amplify';
 
   // import awsconfig
-  import Amplify, { API, Auth, graphqlOperation, Storage } from 'aws-amplify';
   import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
 
