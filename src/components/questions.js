@@ -11,7 +11,7 @@ const questions = [
         required: true,
         options: [
         new ChoiceOption({
-            label: 'Very well'
+            label: 'Very Good'
         }),
         new ChoiceOption({
             label: 'Good'

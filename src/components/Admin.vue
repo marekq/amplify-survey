@@ -2,7 +2,8 @@
   <div class="container">
     <h1>Admin page</h1>
 
-    <div id = "app">
+    <div id = "app" v-if = "data.authgroups !== 'none'">
+      <p>Viewing {{this.data.authgroups}} group survey responses</p>
       <table width = "100%">
         <thead>
           <tr>
@@ -21,6 +22,11 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div id = "app" v-if = "data.authgroups === 'none'">
+      <br />
+      <p><b>Acccess denied</b></p>
+      <p>You do not have any admin group permissions assigned, check your user profile page.</p>
     </div>
   </div>
 </template>
@@ -49,17 +55,6 @@
     }
   });
 
-  // set vuetable fields
-  const fields = [
-    'age',
-    'group',
-    'a1',
-    'a2',
-    'a3',
-    'a4',
-    'a5'
-  ]
-
   // default export
   export default {
     name: 'vuesurvey',
@@ -70,8 +65,8 @@
     // set table return 
     data() {
       return {
-        fields: fields,
-        data: []
+        data: [],
+        authgroups: 'none'
       }
     },
 
@@ -98,6 +93,19 @@
       // set data to listSurvey items, sort by most recent timestamp value 
       this.data = data.data.listSurveys.items.sort(function(a, b){return b.timest-a.timest});
       
+      // get cognito user details
+      const authuser = await Auth.currentAuthenticatedUser();
+
+      // get the cognito group user value or set to none if missing
+      if ( authuser.signInUserSession.idToken.payload["cognito:groups"] ) {
+
+          const usergroup = authuser.signInUserSession.idToken.payload["cognito:groups"];
+          this.data.authgroups = usergroup.join(', ');
+
+      } else {
+          this.data.authgroups = 'none';
+
+      }
     }
   }
 </script>

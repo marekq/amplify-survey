@@ -8,6 +8,7 @@
             <tr><td>email </td><td> {{this.data.authemail}}</td></tr>
             <tr><td>verified </td><td>{{this.data.authverified}}</td></tr>
             <tr><td>groups </td><td> {{this.data.authgroups}}</td></tr>
+            <tr><td>your survey link </td><td><router-link tag = "a" to = "/survey/marek"><a>{{this.surveyurl}}</a></router-link></td></tr>
         </table>
     </center>
 </template>
@@ -22,7 +23,8 @@
                 data: {
                     authgroups: [],
                     authuser: '',
-                    authverified: ''
+                    authverified: '',
+                    surveyurl: ''
                 }
             }
         },
@@ -33,8 +35,11 @@
             const authuser = await Auth.currentAuthenticatedUser();
             const session = await Auth.currentSession();
 
-            // refresh the cognito tokens
-            await authuser.refreshSession(session.refreshToken, (err, session) => {
+            // set the base survey url for profile page
+            this.surveyurl = window.location.origin + '/' + authuser.username + '/survey/'
+
+            // refresh the cognito tokens once
+            authuser.refreshSession(session.refreshToken, (err, session) => {
                 console.log('refreshing session', err, session);
                 const { idToken, refreshToken, accessToken } = session;
             });
