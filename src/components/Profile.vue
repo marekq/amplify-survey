@@ -4,10 +4,10 @@
         <h1>Your profile</h1>
         <br />
         <table width = "80%">
-            <tr><td>username </td><td> {{this.data.authuser}}</td></tr>
-            <tr><td>email </td><td> {{this.data.authemail}}</td></tr>
-            <tr><td>verified </td><td>{{this.data.authverified}}</td></tr>
-            <tr><td>groups </td><td> {{this.data.authgroups}}</td></tr>
+            <tr><td>your username </td><td> {{this.data.authuser}}</td></tr>
+            <tr><td>e-mail </td><td> {{this.data.authemail}}</td></tr>
+            <tr><td>account verified </td><td>{{this.data.authverified}}</td></tr>
+            <tr><td>permission groups </td><td> {{this.data.authgroups}}</td></tr>
             <tr><td>your survey link </td><td><router-link tag = "a" to = "/survey/marek"><a>{{this.data.surveyurl}}</a></router-link></td></tr>
         </table>
     </center>

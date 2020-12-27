@@ -1,9 +1,8 @@
 <template>
   <div class = "container">
     <h1>Admin page</h1>
-
-    <div id = "app" v-if = "data.authgroups !== 'none'">
-      <p><i>Viewing {{this.data.authgroups}} group survey responses</i></p>
+    <div id = "app" v-if = "authgroups !== 'none'">
+      <p><i>Viewing {{this.authgroups}} group survey responses</i></p>
       <table width = "100%">
         <thead>
           <tr>
@@ -32,6 +31,7 @@
 </template>
 
 <script>  
+
   // import vuetable
   import Vuetable from 'vuetable-2';
   import prettyMilliseconds from 'pretty-ms';
@@ -41,9 +41,10 @@
 
   // import awsconfig and configure amplify
   import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
-  import awsconfig from '../aws-exports';
   import AWSAppSyncClient from 'aws-appsync';
 
+  // setup amplify config
+  import awsconfig from '../aws-exports';
   Amplify.configure(awsconfig);
 
   // create client to retrieve
@@ -100,10 +101,10 @@
       if ( authuser.signInUserSession.idToken.payload["cognito:groups"] ) {
 
           const usergroup = authuser.signInUserSession.idToken.payload["cognito:groups"];
-          this.data.authgroups = usergroup.join(', ');
+          this.authgroups = usergroup.join(', ');
 
       } else {
-          this.data.authgroups = 'none';
+          this.authgroups = 'none';
 
       }
     }
