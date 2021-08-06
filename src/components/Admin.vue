@@ -24,6 +24,10 @@
               title: 'Survey'
             },
             {
+              name: 'user', 
+              title: 'User'
+            },
+            {
               name: 'a1',
               title: 'Rating'
             },
