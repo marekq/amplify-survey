@@ -3,24 +3,38 @@
     <h1>Admin page</h1>
     <div id = "app" v-if = "authgroups !== 'none'">
       <p><i>Viewing {{this.authgroups}} group survey responses</i></p>
-      <table width = "100%">
-        <thead>
-          <tr>
-            <th>Age</th>
-            <th>Survey</th>
-            <th>Satisfaction</th>
-            <th>User</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(row, index) in data" :key="`${row.id}`">
-            <td>{{ row.age }}</td>
-            <td>{{ row.survey }}</td>
-            <td>{{ row.a1 }}</td>
-            <td>{{ row.user }}</td>
-          </tr>
-        </tbody>
-      </table>
+        <vuetable
+          ref = "vuetable"
+          :api-mode = "false"
+          :data = "data"
+          :fields = "[
+            
+            {
+              name: 'age',
+              title: 'Age'
+            },
+            {
+              name: 'survey', 
+              title: 'Survey'
+            },
+            {
+              name: 'a1',
+              title: 'Q1'
+            },
+            {
+              name: 'a2',
+              title: 'Q2'
+            },
+            {
+              name: 'a3',
+              title: 'Q3'
+            },
+            {
+              name: 'a4',
+              title: 'Q4'
+            }
+          ]"
+        />
     </div>
     <div id = "app" v-if = "data.authgroups === 'none'">
       <br />
@@ -107,7 +121,7 @@
           this.authgroups = 'none';
 
       }
-    }
+    },
   }
 </script>
 

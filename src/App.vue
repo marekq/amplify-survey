@@ -1,28 +1,28 @@
 <template>
-    <div id = 'app'>
-      <div class = 'nav' align = 'center'>
-        <router-link tag = "p" to = "/">
-          <a>Home</a>
-        </router-link>
-        <router-link tag = "p" to = "/survey/">
-          <a>Survey</a>
-        </router-link>
-        <router-link tag = "p" to = "/admin/" v-if = "signedIn">
-          <a>Admin Panel</a>
-        </router-link>
-        <router-link tag = "p" to = "/auth/" v-if = "!signedIn">
-          <a>Admin Login</a>
-        </router-link>
-        <router-link tag = "p" to = "/profile/" v-if = "signedIn">
-          <a>My Profile</a>
-        </router-link>
-      </div><br />
-      <router-view />
-      <br /><br />
-      <div class = 'sign-out' sticky = "bottom">
-        <amplify-sign-out v-if = "signedIn"></amplify-sign-out>
-      </div>
+  <div id = 'app'>
+    <div class = 'nav'>
+      <router-link tag = "p" to = "/">
+        <a>Home</a>
+      </router-link>
+      <router-link tag = "p" to = "/survey/">
+        <a>Survey</a>
+      </router-link>
+      <router-link tag = "p" to = "/admin/" v-if = "signedIn">
+        <a>Admin Panel</a>
+      </router-link>
+      <router-link tag = "p" to = "/auth/" v-if = "!signedIn">
+        <a>Admin Login</a>
+      </router-link>
+      <router-link tag = "p" to = "/profile/" v-if = "signedIn">
+        <a>My Profile</a>
+      </router-link>
+    </div><br />
+    <router-view />
+    <br /><br />
+    <div class = 'sign-out' sticky = "bottom">
+      <amplify-sign-out v-if = "signedIn"></amplify-sign-out>
     </div>
+  </div>
 </template>
 
 <script>
