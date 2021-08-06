@@ -61,11 +61,15 @@ export default {
 
 <style>
 .nav p {
-  padding: 2% 2% 2% 2%;
   font-size: 18px;
   color: #000;
-  margin: auto;
+  margin: 1em auto 1em;
 }
+
+.nav {
+  max-width: 100%;
+}
+
 .nav p:hover {
   opacity: .7;
 }

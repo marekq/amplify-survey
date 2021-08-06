@@ -41,7 +41,7 @@
   "dependencies": {
     "@aws-amplify/datastore": "^3.3.0",
     "@aws-amplify/ui-vue": "^1.1.2",
-    "@ditdot-dev/vue-flow-form": "^1.1.6",
+    "@ditdot-dev/vue-flow-form": "^1.1.7",
     "aws-amplify": "^4.2.2",
     "aws-appsync": "^4.1.1",
     "bootstrap": "^5.1.0",

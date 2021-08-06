@@ -1,8 +1,14 @@
 <template>
   <div class = "container">
-    <h1>Admin page</h1>
+    <center>
+      <h1>Admin page</h1>
+    </center>
     <div id = "app" v-if = "authgroups !== 'none'">
-      <p><i>Viewing {{this.authgroups}} group survey responses</i></p>
+      <p>
+        <center>
+          <i>Viewing {{this.authgroups}} group survey responses</i>
+        </center>
+      </p>
         <vuetable
           ref = "vuetable"
           :api-mode = "false"
@@ -19,19 +25,19 @@
             },
             {
               name: 'a1',
-              title: 'Q1'
+              title: 'Rating'
             },
             {
               name: 'a2',
-              title: 'Q2'
+              title: 'Services'
             },
             {
               name: 'a3',
-              title: 'Q3'
+              title: 'Content'
             },
             {
               name: 'a4',
-              title: 'Q4'
+              title: 'Comments'
             }
           ]"
         />
