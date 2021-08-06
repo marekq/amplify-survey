@@ -70,7 +70,7 @@ const questions = [
         required: false
     }),
     new QuestionModel({
-        title: 'Optional - Subscribe to updates from AWS',
+        title: 'Optional - Subscribe to our newsletter',
         type: QuestionType.Email,
         required: false
     })

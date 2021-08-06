@@ -26,6 +26,7 @@
 </template>
 
 <script>
+
 import { Auth, Hub } from 'aws-amplify';
 
 export default {
@@ -35,6 +36,7 @@ export default {
       signedIn: false
     }
   },
+
   beforeCreate() {
     Hub.listen('auth', data => {
       const { payload } = data
@@ -47,6 +49,7 @@ export default {
         this.signedIn = false
       }
     })
+    
     Auth.currentAuthenticatedUser()
       .then(() => {
         this.signedIn = true

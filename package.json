@@ -31,26 +31,24 @@
     }
   },
   "devDependencies": {
-    "@vue/cli-service": "4.5.9",
-    "eslint": "^7.16.0",
-    "eslint-plugin-vue": "^7.3.0",
+    "@vue/cli-service": "4.5.13",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.15.1",
     "vue-cli-plugin-webpack-bundle-analyzer": "~4.0.0",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.14"
   },
   "description": "Vue Survey",
   "dependencies": {
-    "@aws-amplify/datastore": "^2.9.2",
-    "@aws-amplify/ui-vue": "^0.2.32",
+    "@aws-amplify/datastore": "^3.3.0",
+    "@aws-amplify/ui-vue": "^1.1.2",
     "@ditdot-dev/vue-flow-form": "^1.1.6",
-    "aws-amplify": "^3.3.13",
-    "aws-appsync": "^4.0.1",
-    "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.21.1",
-    "core-js": "^3.8.1",
+    "aws-amplify": "^4.2.2",
+    "aws-appsync": "^4.1.1",
+    "bootstrap": "^5.1.0",
+    "bootstrap-vue": "^2.21.2",
     "pretty-ms": "^7.0.1",
-    "regenerator-runtime": "^0.13.7",
-    "vue": "^2.6.12",
-    "vue-router": "^3.4.9",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2",
     "vuetable-2": "^1.7.5"
   },
   "browserslist": [
