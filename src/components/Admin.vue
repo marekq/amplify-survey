@@ -14,14 +14,13 @@
           :api-mode = "false"
           :data = "data"
           :fields = "[
-            
             {
               name: 'age',
               title: 'Age'
             },
             {
               name: 'survey', 
-              title: 'Survey'
+              title: 'Survey',
             },
             {
               name: 'user', 
@@ -29,19 +28,23 @@
             },
             {
               name: 'a1',
-              title: 'Rating'
+              title: 'Q1'
             },
             {
               name: 'a2',
-              title: 'Services'
+              title: 'Q2'
             },
             {
               name: 'a3',
-              title: 'Content'
+              title: 'Q3'
             },
             {
               name: 'a4',
-              title: 'Comments'
+              title: 'Q4'
+            },
+            {
+              name: 'a5',
+              title: 'Q5'
             }
           ]"
         />
@@ -122,26 +125,21 @@
       // get data from graphql using cognito auth
       var data = await API.graphql({ query: listSurveys, variables: { filter: filter } });
 
-      //console.log(data);
-
       var tmp = data.data.listSurveys.items;
   		var now = new Date().getTime();
 
       // convert the unix timestamp of every blog to a timediff string
       tmp.map(function(survey, index){
                 
-        //console.log(survey);
-
         // get the time difference in seconds
         var timestamp = now - (survey.timest * 1000);
 
         // get the time difference string and set it in data
         var timediff = prettyMilliseconds(timestamp, {compact: true});
         survey.age = timediff;
+        survey.survey = '<a href = "/admin/' + survey.survey + '">' + survey.survey + '</a>';
 
       });
-
-      console.log(tmp[0].q0);
 
       // set data to listSurvey items, sort by most recent timestamp value 
       this.data = data.data.listSurveys.items.sort(function(a, b){return b.timest-a.timest});
