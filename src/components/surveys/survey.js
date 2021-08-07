@@ -1,8 +1,8 @@
 import { QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-form';
 
-const questions = [
+const survey = [
     new QuestionModel({
-        title: 'Event survey',
+        title: 'Survey',
         type: QuestionType.SectionBreak
     }),
     new QuestionModel({
@@ -76,4 +76,4 @@ const questions = [
     })
 ]
 
-export default questions;
+export default survey;

@@ -17,6 +17,7 @@ const routes = [
   { path: '/survey/:survey', component: Survey },
   { path: '/auth/', component: AuthComponent },
   { path: '/admin/', component: Admin, meta: { requiresAuth: true } },
+  { path: '/admin/:survey', component: Admin, meta: { requiresAuth: true } },
   { path: '/profile/', component: Profile, meta: { requiresAuth: true } }
 ]
 

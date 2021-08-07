@@ -98,14 +98,40 @@
     // retrieve data from table
     async mounted () {        
 
+      const urlpath = this.$route.path;
+      const surveypath = urlpath.substring(7, urlpath.length);
+      console.log('path ', urlpath, ' surveypath ', surveypath);
+
+      var filter = null;
+      var admin = false;
+
+      if (urlpath === '/admin' || urlpath === '/admin/') {
+        admin = true;
+        filter = null;
+
+      } else {
+
+        admin = false;
+        filter = {
+          survey: {
+            eq: surveypath
+          }
+        };
+      };
+
       // get data from graphql using cognito auth
-      var data = await API.graphql({ query: listSurveys });
+      var data = await API.graphql({ query: listSurveys, variables: { filter: filter } });
+
+      //console.log(data);
+
       var tmp = data.data.listSurveys.items;
   		var now = new Date().getTime();
 
       // convert the unix timestamp of every blog to a timediff string
       tmp.map(function(survey, index){
                 
+        //console.log(survey);
+
         // get the time difference in seconds
         var timestamp = now - (survey.timest * 1000);
 
@@ -114,6 +140,8 @@
         survey.age = timediff;
 
       });
+
+      console.log(tmp[0].q0);
 
       // set data to listSurvey items, sort by most recent timestamp value 
       this.data = data.data.listSurveys.items.sort(function(a, b){return b.timest-a.timest});

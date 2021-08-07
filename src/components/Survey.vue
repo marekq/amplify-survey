@@ -1,6 +1,5 @@
 <template>
   <div>
-    <a href="#" @click="getQuestionsS3('all.json')"></a>
     <flow-form
       id = "app"
       v-on:complete = "onComplete"
@@ -20,9 +19,7 @@
       </template>
 
       <template v-slot:completeButton>
-        <div class = "f-submit" v-if = "!submitted">
-  
-        </div>
+        <div class = "f-submit" v-if = "!submitted" />
       </template>
     </flow-form>
   </div>
@@ -31,7 +28,9 @@
 <script>
   // import flowform for survey and questions
   import FlowForm, { LanguageModel } from '@ditdot-dev/vue-flow-form';
-  import questions from './questions'
+
+  import questionaire from './surveys/questionaire';
+  import survey from './surveys/survey';
 
   // import graphql mutations and amplify libs
   import { createSurvey } from '../graphql/mutations';
@@ -47,6 +46,13 @@
       FlowForm
     },
 
+    computed: {
+      currentRouteName() {
+        console.log(this.$route);
+        return this.$route.path;
+      }
+    },
+
     // get survey name from url path
     async beforeCreate() {
       const survey = this.$route.path;
@@ -57,6 +63,17 @@
     // get survey data
     data() {
     
+      let questions;
+
+      // set questionaire
+      if (this.survey === 'q' || this.survey === 'questionaire') {
+        questions = questionaire;
+
+      // set survey
+      } else {
+        questions = survey;
+      }
+
       return {
         submitted: false,
         language: new LanguageModel({}),
@@ -77,15 +94,6 @@
       /* eslint-disable-next-line no-unused-vars */
       onComplete(completed, questionList) {
         this.onSendData();
-      },
-
-      // WIP - get question data from S3
-      async getQuestionsS3() {
-        const x = await Storage.get('all.json', {'download': true});
-
-        x.Body.text().then(string => { 
-          console.log(string)
-        })
       },
 
       createNewSurvey(data) {
@@ -135,7 +143,7 @@
       onSendData() {
 
         /* eslint-disable-next-line no-unused-vars */
-        const data = this.getData();
+        const data = this.getQuestionData();
 
         // send data 
         this.createNewSurvey(data)
@@ -143,7 +151,7 @@
       },
 
       // get the question data
-      getData() {
+      getQuestionData() {
 
         const data = {
           questions: [],
