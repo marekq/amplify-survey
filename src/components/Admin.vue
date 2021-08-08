@@ -1,13 +1,9 @@
 <template>
-  <div class = "container">
-    <center>
+  <div class = "container" v-bind:style = '{textAlign: "center", margin: "3em 3em"}'>
       <h1>Admin page</h1>
-    </center>
     <div id = "app" v-if = "authgroups !== 'none'">
       <p>
-        <center>
           <i>Viewing {{this.authgroups}} group survey responses</i>
-        </center>
       </p>
         <vuetable
           ref = "vuetable"
@@ -60,14 +56,14 @@
 <script>  
 
   // import vuetable
-  import Vuetable from 'vuetable-2';
+  import Vuetable from 'vue3-vuetable';
   import prettyMilliseconds from 'pretty-ms';
 
   // import graphql queries
   import { listSurveys } from '../graphql/queries';
 
   // import awsconfig and configure amplify
-  import Amplify, { API, graphqlOperation, Auth, Hub } from 'aws-amplify';
+  import {Amplify, API, graphqlOperation, Auth, Hub } from 'aws-amplify';
   import AWSAppSyncClient from 'aws-appsync/lib/client';
 
   // setup amplify config

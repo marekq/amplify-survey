@@ -1,16 +1,14 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from "./App.vue";
-import '@aws-amplify/ui-vue';
+import '@aws-amplify/ui-components';
 import router from './router';
-import VueRouter from 'vue-router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-Vue.config.productionTip = false;
-Vue.use(VueRouter);
+import { applyPolyfills, defineCustomElements } from "@aws-amplify/ui-components/loader";
+  applyPolyfills().then(() => {
+    defineCustomElements(window);
+  });
 
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount("#app");
+createApp(App).use(router).mount("#app");

@@ -1,14 +1,14 @@
 <template>
   <div id = 'app'>
-    <div class = 'nav'>
-      <router-link tag = "p" to = "/">
-        <a>Home</a>
+    <div width = "100%">
+      <router-link tag = "div" to = "/">
+        <a>Home</a> 
       </router-link>
-      <router-link tag = "p" to = "/survey/">
-        <a>Survey</a>
+      <router-link tag = "div" to = "/survey/">
+        <a>Survey</a> 
       </router-link>
       <router-link tag = "p" to = "/admin/" v-if = "signedIn">
-        <a>Admin Panel</a>
+        <a>Admin Panel</a> 
       </router-link>
       <router-link tag = "p" to = "/auth/" v-if = "!signedIn">
         <a>Admin Login</a>
@@ -16,7 +16,7 @@
       <router-link tag = "p" to = "/profile/" v-if = "signedIn">
         <a>My Profile</a>
       </router-link>
-    </div><br />
+      </div>
     <router-view />
     <br /><br />
     <div class = 'sign-out' sticky = "bottom">
@@ -60,18 +60,9 @@ export default {
 </script>
 
 <style>
-.nav p {
-  font-size: 18px;
-  color: #000;
-  margin: 1em auto 1em;
-}
-
-.nav {
-  max-width: 100%;
-}
-
-.nav p:hover {
-  opacity: .7;
+table, th, td {
+  padding: 10px 10px 10px;
+  textAlign: center;
 }
 
 .sign-out {

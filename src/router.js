@@ -1,5 +1,5 @@
 // import vuerouter and amplify
-import VueRouter from 'vue-router';
+import { createWebHistory, createRouter } from "vue-router";
 import { Auth } from 'aws-amplify';
 
 // import page components
@@ -22,10 +22,10 @@ const routes = [
 ]
 
 // create vue router with history
-const router = new VueRouter({
-  mode: 'history',
-  routes
-})
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
 
 // check for auth token
 router.beforeResolve((to, from, next) => {

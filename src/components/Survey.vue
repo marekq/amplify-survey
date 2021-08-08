@@ -27,7 +27,7 @@
 
 <script>
   // import flowform for survey and questions
-  import FlowForm, { LanguageModel } from '@ditdot-dev/vue-flow-form';
+  import { FlowForm, LanguageModel } from '@ditdot-dev/vue-flow-form';
 
   import questionaire from './surveys/questionaire';
   import survey from './surveys/survey';

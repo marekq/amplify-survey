@@ -1,6 +1,6 @@
 
 <template>
-    <center>
+    <div class = "container" v-bind:style = '{textAlign: "center", margin: "3em 3em"}'>
         <h1>Your profile</h1>
         <br />
         <table width = "80%">
@@ -8,9 +8,8 @@
             <tr><td>e-mail </td><td> {{this.data.authemail}}</td></tr>
             <tr><td>account verified </td><td>{{this.data.authverified}}</td></tr>
             <tr><td>permission groups </td><td> {{this.data.authgroups}}</td></tr>
-            <tr><td>your survey link </td><td><router-link tag = "a" to = "/survey/marek"><a>{{this.data.surveyurl}}</a></router-link></td></tr>
         </table>
-    </center>
+    </div>
 </template>
 
 <script>
