@@ -1,6 +1,6 @@
 
 <template>
-    <div class = "container" v-bind:style = '{textAlign: "center", margin: "3em 3em"}'>
+    <div class = "container" v-bind:style = '{textAlign: "center"}'>
         <h1>Your profile</h1>
         <br />
         <table width = "80%">
@@ -67,4 +67,5 @@
         max-width: 600px;
         margin: 2em;
     }
+
 </style>

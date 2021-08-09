@@ -1,6 +1,6 @@
 <template>
-  <div id = 'app'>
-    <div width = "100%">
+  <div class = 'app'>
+    <div width = "100%" class = 'navbar'>
       <router-link tag = "div" to = "/">
         <a>Home</a> 
       </router-link>
@@ -61,8 +61,13 @@ export default {
 
 <style>
 table, th, td {
-  padding: 10px 10px 10px;
-  textAlign: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.navbar {
+  font-size: 18px;
+  text-align: center;
+  margin: 1em 1em 3em 1em;
 }
 
 .sign-out {

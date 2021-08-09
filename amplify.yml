@@ -3,7 +3,6 @@ backend:
   phases:
     build:
       commands:
-
         # push the stack to amplify
         - amplifyPush --simple
 
