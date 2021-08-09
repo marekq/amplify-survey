@@ -12,6 +12,8 @@ frontend:
     build:
       commands:
         # install and build with yarn
+        - yum install -y nodejs
+        - node -v
         - yarn install
         - yarn run build
 

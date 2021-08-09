@@ -1,4 +1,3 @@
-
 <template>
     <div class = "container" v-bind:style = '{textAlign: "center"}'>
         <h1>Survey Home</h1>
