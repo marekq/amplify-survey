@@ -12,9 +12,8 @@ frontend:
     build:
       commands:
         # install dependancies 
-        - yum install -y sudo gcc-c++ make
-        - curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - 
-        - yum install -y nodejs
+        - nvm install 14.15.1
+        - nvm use 14.15.1
         - node -v
         
         # install and build with yarn
