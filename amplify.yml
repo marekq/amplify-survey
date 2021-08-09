@@ -11,9 +11,13 @@ frontend:
   phases:
     build:
       commands:
-        # install and build with yarn
+        # install dependancies 
+        - yum install sudo gcc-c++ make 
+        - curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - 
         - yum install -y nodejs
         - node -v
+        
+        # install and build with yarn
         - yarn install
         - yarn run build
 
