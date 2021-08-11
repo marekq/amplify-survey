@@ -1,9 +1,9 @@
 
 <template>
-    <div class = "container" v-bind:style = '{textAlign: "center"}'>
+    <div class = "container"  v-bind:style = '{textAlign: "center"}'>
         <h1>Your profile</h1>
         <br />
-        <table width = "80%">
+        <table width = "80%" v-bind:style = '{textAlign: "left"}'>
             <tr><td>your username </td><td> {{this.data.authuser}}</td></tr>
             <tr><td>e-mail </td><td> {{this.data.authemail}}</td></tr>
             <tr><td>account verified </td><td>{{this.data.authverified}}</td></tr>

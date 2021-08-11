@@ -63,7 +63,7 @@
   import { listSurveys } from '../graphql/queries';
 
   // import awsconfig and configure amplify
-  import {Amplify, API, graphqlOperation, Auth, Hub } from 'aws-amplify';
+  import { Amplify, API, graphqlOperation, Auth, Hub } from 'aws-amplify';
   import AWSAppSyncClient from 'aws-appsync/lib/client';
 
   // setup amplify config

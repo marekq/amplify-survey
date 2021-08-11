@@ -9,6 +9,7 @@ import AuthComponent from './components/Auth';
 import Admin from './components/Admin';
 import SurveyHome from './components/SurveyHome';
 import Profile from './components/Profile';
+import IAM from './components/IAM';
 
 // define router rules
 const routes = [
@@ -18,7 +19,8 @@ const routes = [
   { path: '/auth/', component: AuthComponent },
   { path: '/admin/', component: Admin, meta: { requiresAuth: true } },
   { path: '/admin/:survey', component: Admin, meta: { requiresAuth: true } },
-  { path: '/profile/', component: Profile, meta: { requiresAuth: true } }
+  { path: '/profile/', component: Profile, meta: { requiresAuth: true } },
+  { path: '/iam/', component: IAM, meta: { requiresAuth: true } }
 ]
 
 // create vue router with history
@@ -37,8 +39,9 @@ router.beforeResolve((to, from, next) => {
         path: '/auth'
       });
     });
+  } else {
+    next()
   }
-  next()
 })
 
 export default router;

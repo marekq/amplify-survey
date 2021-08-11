@@ -16,6 +16,9 @@
       <router-link tag = "p" to = "/profile/" v-if = "signedIn">
         <a>My Profile</a>
       </router-link>
+      <router-link tag = "p" to = "/iam/" v-if = "signedIn">
+        <a>IAM</a>
+      </router-link>
       </div>
     <router-view />
     <br /><br />

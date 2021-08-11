@@ -11,8 +11,8 @@ frontend:
     build:
       commands:
         # install dependancies 
-        - nvm install 14.16
-        - nvm use 14.16
+        - nvm install 14
+        - nvm use 14
         - node -v
         
         # install and build with yarn
